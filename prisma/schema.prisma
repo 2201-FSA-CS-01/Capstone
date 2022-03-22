@@ -51,6 +51,7 @@ model User {
   physicalxp    Int?       @default(0)
   mentalxp      Int?       @default(0)
   //userTask      UserTask[]
+  UserTask      UserTask[]
 }
 
 model Task {
@@ -67,7 +68,7 @@ model UserTask {
   user        User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
   status      Boolean   @default(false)
   completedAt DateTime?
-  completed   Boolean   @deault(false)
+  completed   Boolean   @default(false)
   task_id     Int
   task        Task      @relation(fields: [task_id], references: [id], onDelete: Cascade)
 }
