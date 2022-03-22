@@ -1,19 +1,9 @@
-import { useSession, signIn, signOut } from "next-auth/react";
+import Field from '../components/Field.js';
 
-export default function Component() {
-  const { data: session } = useSession();
-  if (session) {
-    return (
-      <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
-  }
+export default function Home() {
   return (
     <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
+      <Field />
     </>
   );
 }
