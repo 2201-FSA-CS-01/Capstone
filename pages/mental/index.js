@@ -2,18 +2,23 @@ import React from "react";
 import prisma from "../../utils/prisma";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import Navbar from "../../components/Navbar.js"
+import Header from "../../components/Header"
+
 
 const index = (props) => {
   const { data: session } = useSession();
-  if (!session) {
+  if (session) {
     return (
       <div>
+        <Header />
         Mental Goals Page
         {props.goals
           ? props.goals.map((g) => {
               return <div>{g.name}</div>;
             })
           : "Loading goals"}
+          <Navbar />
       </div>
     );
   }
