@@ -2,15 +2,16 @@ import React from "react";
 import prisma from "../../utils/prisma";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+
 const index = (props) => {
   const { data: session } = useSession();
-  if (!session) {
+  if (session) {
     return (
       <div>
         Physical Page
         {props.goals
           ? props.goals.map((g) => {
-              return <div>{g.name}</div>;
+              return <h1>{g.name}</h1>;
             })
           : "Loading goals"}
       </div>

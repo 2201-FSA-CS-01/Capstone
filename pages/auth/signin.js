@@ -9,7 +9,7 @@ export default function SignIn({ providers }) {
           <div className="w-full flex items-center" key={provider.name}>
             <button
               className="mx-auto transform rounded-sm bg-indigo-600 py-2  duration-300 w-1/2 hover:bg-indigo-400 shadow-md"
-              onClick={() => signIn(provider.id, { callbackUrl: "/dashboard" })}
+              onClick={() => signIn(provider.id, { callbackUrl: "/" })}
             >
               <div className="flex justify-center space-x-3 items-center ">
                 <h3 className="font-signin font-semibold">Sign in with</h3>{" "}
@@ -30,12 +30,3 @@ export async function getServerSideProps(context) {
     props: { providers },
   };
 }
-
-/*
-// If older than Next.js 9.3
-SignIn.getInitialProps = async () => {
-  return {
-    providers: await getProviders()
-  }
-}
-*/
