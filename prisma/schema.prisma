@@ -47,7 +47,11 @@ model User {
   sessions      Session[]
   level         Int?       @default(1)
   exp           Int?       @default(0)
-  userTask      UserTask[]
+  emotionalxp   Int?       @default(0)
+  physicalxp    Int?       @default(0)
+  mentalxp      Int?       @default(0)
+  //userTask      UserTask[]
+  UserTask      UserTask[]
 }
 
 model Task {
@@ -55,6 +59,7 @@ model Task {
   catagory_name String
   name          String
   userTask      UserTask[]
+  value         Int
 }
 
 model UserTask {
@@ -63,6 +68,7 @@ model UserTask {
   user        User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
   status      Boolean   @default(false)
   completedAt DateTime?
+  completed   Boolean   @default(false)
   task_id     Int
   task        Task      @relation(fields: [task_id], references: [id], onDelete: Cascade)
 }
