@@ -9,7 +9,11 @@ export default function SignIn({ providers }) {
           <div className="w-full flex items-center" key={provider.name}>
             <button
               className="mx-auto transform rounded-sm bg-indigo-600 py-2  duration-300 w-1/2 hover:bg-indigo-400 shadow-md"
-              onClick={() => signIn(provider.id, { callbackUrl: "/" })}
+              onClick={() =>
+                signIn(provider.id, {
+                  callbackUrl: "http://localhost:3000/dashboard",
+                })
+              }
             >
               <div className="flex justify-center space-x-3 items-center ">
                 <h3 className="font-signin font-semibold">Sign in with</h3>{" "}
