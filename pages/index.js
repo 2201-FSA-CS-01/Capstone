@@ -4,16 +4,16 @@ export default function Component() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <>
-        Signed in as {session.user.email} <br />
+      <main className="mx-auto flex flex-col  min-h-screen w-full items-center justify-center bg-gray-900 text-white font-signIn">
+        <div className="text-center text-4xl font-bold font-signin">TOMO</div>
         <button onClick={() => signOut()}>Sign out</button>
-      </>
+      </main>
     );
   }
   return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
+    <main className="mx-auto flex flex-col  min-h-screen w-full items-center justify-center bg-gray-900 text-white font-signIn">
+      <div className="text-center text-4xl font-bold font-signin">TOMO</div>
+      <button onClick={() => signIn()}>Please log in</button>
+    </main>
   );
 }
