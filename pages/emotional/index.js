@@ -2,19 +2,27 @@ import React from "react";
 import prisma from "../../utils/prisma";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import Navbar from "../../components/Navbar"
+import Header from "../../components/Header"
+
 
 
 const index = (props) => {
   const { data: session } = useSession();
-  if (!session) {
+  if (session) {
     return (
       <div>
-        Emotion Goals
-        {props.goals
-          ? props.goals.map((g) => {
-              return <div>{g.name}</div>;
+        <Header />
+        <h1 className="heading">Emotional Goals Page</h1>
+        <ul>
+          {props.goals
+            ? props.goals.map((g) => {
+              return <li>{g.name}</li>;
             })
-          : "Loading goals"}
+            : "Loading goals"}
+        </ul>
+
+        <Navbar />
       </div>
     );
   }
@@ -22,7 +30,7 @@ const index = (props) => {
     <>
       Not signed in <br />
       <button onClick={() => signIn()}>Sign in</button>
-      <Link href="/emotioanl" className="">
+      <Link href="/emotional" className="">
         Emotional Goals
       </Link>
     </>
@@ -35,7 +43,7 @@ export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany({
       where: {
-        catagory_name: "physical",
+        catagory_name: "emotional",
       },
     });
 
