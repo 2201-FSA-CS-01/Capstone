@@ -1,10 +1,10 @@
-import { useState } from "react";
-import Goals from "./Goals";
-import Field from "./Field";
-import MentalMeter from "./Meters/MentalMeter";
-import PhysicalMeter from "./Meters/PhysicalMeter";
-import EmotionalMeter from "./Meters/EmotionalMeter";
-import Physical from "./Goals/Physical";
+import Goals from './Goals';
+import Field from './Field';
+import MentalMeter from './Meters/MentalMeter';
+import PhysicalMeter from './Meters/PhysicalMeter';
+import EmotionalMeter from './Meters/EmotionalMeter';
+
+import { useState } from 'react';
 
 function Dashboard() {
   let [mentalValue, setMentalValue] = useState(50);
@@ -17,7 +17,6 @@ function Dashboard() {
       return prev + 10;
     });
   }
-
   function submitPhysical() {
     setPhysicalValue(function (prev) {
       if (prev >= 100) return;
@@ -30,21 +29,15 @@ function Dashboard() {
       return prev + 10;
     });
   }
-  /*We can perhaps have separate component kkkkfor Progress bar and pull the data from the back end. From there we can map through each Goal Category and pass that component into this one, for brevity */
+  /*We can perhaps have separate component for Progress bar and pull the data from the back end. From there we can map through each Goal Category and pass that component into this one, for brevity */
   return (
     <>
-      <MentalMeter value={mentalValue} />
-      <PhysicalMeter value={physicalValue} />
-      <EmotionalMeter value={emotionalValue} />
+      <MentalMeter submit={{ mentalValue, submitMental }} />
+      <PhysicalMeter />
+      <EmotionalMeter />
       <Field />
-      <div>
-        <ul className="flex flex-col items-center ">
-          <Physical onClick={submitPhysical} />
-
-          {/* <Goals submit={{ submitMental, submitPhysical, submitEmotional }} /> */}
-        </ul>
-      </div>
-    </>
+      <Goals submit={{ submitMental, submitPhysical, submitEmotional }} />
+    </> //split up Goals into sep comps, then pass the functions there, THEN pass the Goals
   );
 }
 export default Dashboard;

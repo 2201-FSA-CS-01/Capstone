@@ -1,4 +1,15 @@
+import { useState } from 'react';
+
 function PhysicalMeter(props) {
+  let [physicalValue, setPhysicalValue] = useState(90);
+
+  function submitPhysical() {
+    setPhysicalValue(function (prev) {
+      if (prev >= 100) return;
+      return prev + 10;
+    });
+  }
+
   return (
     <>
       <div className="flex justify-between mt-4 ">
