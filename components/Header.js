@@ -1,5 +1,5 @@
-function header () {
-  return <div className="font-bold font-sans">Goal Page</div>
+function header() {
+  return <div className="font-bold font-sans">Meter</div>;
 }
 
-export default header
+export default header;
