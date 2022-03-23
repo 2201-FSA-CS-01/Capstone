@@ -1,11 +1,12 @@
-import React from "react";
-import prisma from "../../utils/prisma";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
+import React from 'react';
+import prisma from '../../utils/prisma';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import Link from 'next/link';
 
 const index = (props) => {
   const { data: session } = useSession();
   if (!session) {
+    //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
       <div>
         Mental Goals Page
@@ -13,7 +14,7 @@ const index = (props) => {
           ? props.goals.map((g) => {
               return <div>{g.name}</div>;
             })
-          : "Loading goals"}
+          : 'Loading goals'}
       </div>
     );
   }
@@ -34,7 +35,7 @@ export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany({
       where: {
-        catagory_name: "mental",
+        catagory_name: 'mental',
       },
     });
 
@@ -45,7 +46,7 @@ export const getServerSideProps = async () => {
     return {
       redirect: {
         permanent: false,
-        destination: "/",
+        destination: '/',
       },
     };
   }
