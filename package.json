@@ -1,6 +1,9 @@
 {
   "name": "pwa",
   "private": true,
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
