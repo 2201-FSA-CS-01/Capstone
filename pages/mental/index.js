@@ -1,13 +1,12 @@
-import React from 'react';
-import prisma from '../../utils/prisma';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import Link from 'next/link';
-import MentalMeter from '../../components/Meters/MentalMeter';
-import PhysicalMeter from '../../components/Meters/PhysicalMeter';
-import EmotionalMeter from '../../components/Meters/EmotionalMeter';
-import Navbar from '../../components/Navbar';
-import { useAppContext } from '../../components/context/state';
-
+import React from "react";
+import prisma from "../../utils/prisma";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
+import MentalMeter from "../../components/Meters/MentalMeter";
+import PhysicalMeter from "../../components/Meters/PhysicalMeter";
+import EmotionalMeter from "../../components/Meters/EmotionalMeter";
+import Navbar from "../../components/Navbar";
+import { useAppContext } from "../../components/context/state";
 
 const index = (props) => {
   const myContext = useAppContext();
@@ -20,15 +19,6 @@ const index = (props) => {
         <MentalMeter />
         <PhysicalMeter />
         <EmotionalMeter />
-        Mental Goals Page
-        {props.goals
-          ? props.goals.map((g) => {
-              return <div key={g.id}>{g.name}</div>;
-            })
-          : 'Loading goals'}
-    return (
-      <div>
-        <Header />
         <div className="box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
           <h1 className="heading text-3xl text-slate-100 font-Manrope text-center">
             Mental Goals
@@ -39,6 +29,7 @@ const index = (props) => {
                 ? props.goals.map((g) => {
                     return (
                       <li
+                        key={g.id}
                         //onClick={submitMental}
                         className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
                       >
@@ -73,7 +64,7 @@ export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany({
       where: {
-        catagory_name: 'mental',
+        catagory_name: "mental",
       },
     });
 
@@ -84,7 +75,7 @@ export const getServerSideProps = async () => {
     return {
       redirect: {
         permanent: false,
-        destination: '/',
+        destination: "/",
       },
     };
   }
