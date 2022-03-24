@@ -13,4 +13,15 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    // async signIn(user, account, profile) { return true },
+    // async redirect(url, baseUrl) {
+    //   return "http://localhost:3000/dashboard";
+    // },
+    // async session(session, user) { return session },
+    // async jwt(token, user, account, profile, isNewUser) { return token }
+  },
+  pages: {
+    signIn: "/auth/signin",
+  },
 });

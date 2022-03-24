@@ -1,28 +1,20 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 
-
-export default function Home() {
+export default function Component() {
+  const { data: session } = useSession();
+  if (session) {
+    return (
+      <main className="mx-auto flex flex-col  min-h-screen w-full items-center justify-center bg-gray-900 text-white font-signIn">
+        <div className="text-center text-4xl font-bold font-signin">TOMO</div>
+        <button onClick={() => signOut()}>Sign out</button>
+      </main>
+    );
+  }
   return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-      <br />
-      <Link href="/physical" className="">
-        Physical Goals
-      </Link>
-      <br />
-      <Link href="/emotional" className="">
-        Emotional Goals
-      </Link>
-      <br />
-      <Link href="/mental" className="">
-        Mental Goals
-      </Link>
-      <br />
-      <Link href="/dashboard" className="">
-        Dashboard
-      </Link>
-    </>
+    <main className="mx-auto flex flex-col  min-h-screen w-full items-center justify-center bg-gray-900 text-white font-signIn">
+      <div className="text-center text-4xl font-bold font-signin">TOMO</div>
+      <button onClick={() => signIn()}>Please log in</button>
+    </main>
   );
 }

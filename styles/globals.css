@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Montserrat:wght@600&family=Playfair+Display+SC&family=Staatliches&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Montserrat:wght@600&family=Playfair+Display+SC&family=Staatliches&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;500;600;700&display=swap");
+html,
 body {
   background: rgb(30, 34, 43);
   /* background-size: 400% 400%;

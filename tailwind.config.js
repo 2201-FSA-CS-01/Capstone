@@ -6,9 +6,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        signIn: ["sans-serif", "M PLUS 2"],
         Manrope: ["Montserrat", "sans-serif"],
       },
     },
+
     keyframes: {
       wiggle: {
         "0%, 100%": { transform: "rotate(-3deg)" },
