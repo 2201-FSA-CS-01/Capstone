@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useAppContext } from '../context/state.js';
 
-function MentalMeter(props) {
-  console.log(props);
+function MentalMeter() {
+  const myContext = useAppContext();
 
   return (
     <>
@@ -12,7 +12,7 @@ function MentalMeter(props) {
       </div>
       <div className="mx-4 border-2 border-white rounded-full ">
         <div
-          style={{ width: `${props.submit.mentalValue}%` }}
+          style={{ width: `${myContext.mentalValue}%` }}
           className="bg-gradient-to-r from-green-400 to-blue-500 h-2.5 rounded-full ease-in duration-700 "
         ></div>
       </div>

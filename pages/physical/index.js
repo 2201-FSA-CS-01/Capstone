@@ -1,18 +1,18 @@
-import React from "react";
-import prisma from "../../utils/prisma";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
+import React from 'react';
+import prisma from '../../utils/prisma';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import Link from 'next/link';
 const index = (props) => {
   const { data: session } = useSession();
-  if (!session) {
+  if (session) {
     return (
       <div>
         Physical Page
         {props.goals
           ? props.goals.map((g) => {
-              return <div>{g.name}</div>;
+              return <div key={g.id}>{g.name}</div>;
             })
-          : "Loading goals"}
+          : 'Loading goals'}
       </div>
     );
   }
@@ -33,7 +33,7 @@ export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany({
       where: {
-        catagory_name: "physical",
+        catagory_name: 'physical',
       },
     });
 
@@ -44,7 +44,7 @@ export const getServerSideProps = async () => {
     return {
       redirect: {
         permanent: false,
-        destination: "/",
+        destination: '/',
       },
     };
   }

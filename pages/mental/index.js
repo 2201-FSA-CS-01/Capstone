@@ -3,33 +3,34 @@ import prisma from '../../utils/prisma';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Link from 'next/link';
 
-import MentalMeter from '../../components/Meters/MentalMeter';
+import { useAppContext } from '../../components/context/state';
 
 const index = (props) => {
+  const myContext = useAppContext();
+
   const { data: session } = useSession();
-  // if (!session) {
-  //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
+  if (!session) {
+    //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
+    return (
+      <div>
+        Mental Goals Page
+        {props.goals
+          ? props.goals.map((g) => {
+              return <div key={g.id}>{g.name}</div>;
+            })
+          : 'Loading goals'}
+      </div>
+    );
+  }
   return (
-    <div>
-      {/* <MentalMeter /> */}
-      Mental Goals Page
-      {props.goals
-        ? props.goals.map((g) => {
-            return <div>{g.name}</div>;
-          })
-        : 'Loading goals'}
-    </div>
+    <>
+      Not signed in <br />
+      <button onClick={() => signIn()}>Sign in</button>
+      <Link href="/mental" className="">
+        Mental Goals
+      </Link>
+    </>
   );
-  // }
-  // return (
-  //   <>
-  //     Not signed in <br />
-  //     <button onClick={() => signIn()}>Sign in</button>
-  //     <Link href="/mental" className="">
-  //       Mental Goals
-  //     </Link>
-  //   </>
-  // );
 };
 
 export default index;

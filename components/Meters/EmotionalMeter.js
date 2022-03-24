@@ -1,14 +1,7 @@
-import { useState } from 'react';
+import { useAppContext } from '../context/state.js';
 
 function EmotionalMeter() {
-  let [emotionalValue, setEmotionalValue] = useState(10);
-
-  function submitEmotional() {
-    setEmotionalValue(function (prev) {
-      if (prev >= 100) return;
-      return prev + 10;
-    });
-  }
+  const myContext = useAppContext();
   return (
     <>
       <div className="flex justify-between mb-1">
@@ -18,7 +11,7 @@ function EmotionalMeter() {
       </div>
       <div className="mx-4 border-2 border-white rounded-full ">
         <div
-          style={{ width: `${emotionalValue}%` }}
+          style={{ width: `${myContext.emotionalValue}%` }}
           className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-2.5 rounded-full ease-in duration-700"
         ></div>
       </div>
