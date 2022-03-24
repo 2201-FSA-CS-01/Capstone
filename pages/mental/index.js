@@ -21,7 +21,7 @@ const index = (props) => {
         <EmotionalMeter />
         <div className="box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
           <h1 className="heading text-3xl text-slate-100 font-Manrope text-center">
-            emotional Goals
+            Mental Goals
           </h1>
           <div>
             <ul className="flex flex-col items-center ">
@@ -30,8 +30,8 @@ const index = (props) => {
                     return (
                       <li
                         key={g.id}
-                        //onClick={submitPhysical}
-                        className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-5000 text-slate-100 font-Manrope shadow-cyan-500/100"
+                        //onClick={submitMental}
+                        className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
                       >
                         <button className="pt-2 justify-items-center ">
                           {g.name}
@@ -64,7 +64,7 @@ export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany({
       where: {
-        catagory_name: "emotional",
+        catagory_name: "mental",
       },
     });
 

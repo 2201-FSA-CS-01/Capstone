@@ -21,6 +21,5 @@ module.exports = {
       wiggle: "wiggle 200ms ease-in-out",
     },
   },
-
-  plugins: [],
+  plugins: [require("tailwindcss-textshadow")],
 };
