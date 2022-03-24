@@ -4,10 +4,10 @@ function EmotionalMeter() {
   const myContext = useAppContext();
   return (
     <>
-      <div className="flex justify-between mb-1">
-        <span className="mx-4 mt-4 text-base font-medium text-white">
+      <div className="flex justify-between mt-4 mb-1">
+        {/* <span className="mx-4 mt-4 text-base font-medium text-white">
           Emotional Health
-        </span>
+        </span> */}
       </div>
       <div className="mx-4 border-2 border-white rounded-full ">
         <div

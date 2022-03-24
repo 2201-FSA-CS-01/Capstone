@@ -5,9 +5,9 @@ function PhysicalMeter() {
   return (
     <>
       <div className="flex justify-between mt-4 ">
-        <span className="mx-4 text-base font-medium text-white">
+        {/* <span className="mx-4 text-base font-medium text-white">
           Physical Health
-        </span>
+        </span> */}
       </div>
       <div className="mx-4 border-2 border-white rounded-full ">
         <div

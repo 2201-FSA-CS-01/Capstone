@@ -5,7 +5,7 @@ function Goals() {
   console.log('MYCONTEXT', myContext);
   return (
     <div>
-      <ul className="flex flex-col items-center ">
+      <ul className="flex flex-col items-center my-6">
         <li
           onClick={myContext.submitMental}
           className="flex flex-col w-5/6 h-16 my-4 text-3xl rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"

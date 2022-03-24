@@ -13,8 +13,8 @@ function Field() {
   //add useState and useEffect to re-render component onClick??
   return (
     <>
-      <div className="flex items-end justify-center mt-8">
-        <Image src={forest} alt="" height={1400} className="rounded-md" />
+      <div className="flex items-end justify-center mt-4">
+        <Image src={forest} alt="" height={1400} className="rounded-md " />
         <div className="absolute mb-12 ">
           <Image src={tomo} alt="" width={90} height={70} />
         </div>
