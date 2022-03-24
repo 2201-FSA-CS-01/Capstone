@@ -1,28 +1,24 @@
-import React from 'react';
-import prisma from '../../utils/prisma';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import Link from 'next/link';
-import MentalMeter from '../../components/Meters/MentalMeter';
-import PhysicalMeter from '../../components/Meters/PhysicalMeter';
-import EmotionalMeter from '../../components/Meters/EmotionalMeter';
-import Navbar from '../../components/Navbar';
+import React from "react";
+import prisma from "../../utils/prisma";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
+import MentalMeter from "../../components/Meters/MentalMeter";
+import PhysicalMeter from "../../components/Meters/PhysicalMeter";
+import EmotionalMeter from "../../components/Meters/EmotionalMeter";
+import Navbar from "../../components/Navbar";
+import { useAppContext } from "../../components/context/state";
 
 const index = (props) => {
+  const myContext = useAppContext();
+
   const { data: session } = useSession();
   if (session) {
+    //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
       <div>
         <MentalMeter />
         <PhysicalMeter />
         <EmotionalMeter />
-        Physical Page
-        {props.goals
-          ? props.goals.map((g) => {
-              return <div key={g.id}>{g.name}</div>;
-            })
-          : 'Loading goals'}
-  
-        <Header />
         <div className="box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
           <h1 className="heading text-3xl text-slate-100 font-Manrope text-center">
             Physical Goals
@@ -33,8 +29,9 @@ const index = (props) => {
                 ? props.goals.map((g) => {
                     return (
                       <li
-                        //onClick={submitMental}
-                        className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg shadow-md truncate rounded-lg bg-gradient-to-r from-yellow-400 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
+                        key={g.id}
+                        //onClick={submitPhysical}
+                        className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-yellow-400 via-gold-500 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
                       >
                         <button className="pt-2 justify-items-center ">
                           {g.name}
@@ -46,7 +43,6 @@ const index = (props) => {
             </ul>
           </div>
         </div>
-
         <Navbar />
       </div>
     );
@@ -55,8 +51,8 @@ const index = (props) => {
     <>
       Not signed in <br />
       <button onClick={() => signIn()}>Sign in</button>
-      <Link href="/emotional" className="">
-        Physical Goals
+      <Link href="/physical" className="">
+        Mental Goals
       </Link>
     </>
   );
@@ -68,7 +64,7 @@ export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany({
       where: {
-        catagory_name: 'physical',
+        catagory_name: "physical",
       },
     });
 
@@ -79,7 +75,7 @@ export const getServerSideProps = async () => {
     return {
       redirect: {
         permanent: false,
-        destination: '/',
+        destination: "/",
       },
     };
   }
