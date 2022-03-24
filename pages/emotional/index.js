@@ -22,6 +22,7 @@ const index = (props) => {
               return <div key={g.id}>{g.name}</div>;
             })
           : 'Loading goals'}
+
         <Navbar />
       </div>
     );
