@@ -19,7 +19,7 @@ const index = (props) => {
         <MentalMeter />
         <PhysicalMeter />
         <EmotionalMeter />
-        <div className="box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
+        <div className="box-border border-4 m-4 h-50 w-50 p-4 rounded-md border-solid border-teal-500">
           <h1 className="heading text-3xl text-slate-100 font-Manrope text-center">
             emotional Goals
           </h1>
@@ -30,7 +30,7 @@ const index = (props) => {
                     return (
                       <li
                         key={g.id}
-                        //onClick={submitPhysical}
+                        onClick={myContext.submitEmotional}
                         className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-5000 text-slate-100 font-Manrope shadow-cyan-500/100"
                       >
                         <button className="pt-2 justify-items-center ">
