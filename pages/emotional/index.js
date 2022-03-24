@@ -1,26 +1,27 @@
-import React from "react";
-import prisma from "../../utils/prisma";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
-import Navbar from "../../components/Navbar"
-import Header from "../../components/Header"
-
-
+import React from 'react';
+import prisma from '../../utils/prisma';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import Link from 'next/link';
+import MentalMeter from '../../components/Meters/MentalMeter';
+import PhysicalMeter from '../../components/Meters/PhysicalMeter';
+import EmotionalMeter from '../../components/Meters/EmotionalMeter';
+import Navbar from '../../components/Navbar';
 
 const index = (props) => {
   const { data: session } = useSession();
+
   if (session) {
     return (
       <div>
-        <Header />
-        <h1 className="heading">Emotional Goals Page</h1>
-        <ul>
-          {props.goals
-            ? props.goals.map((g) => {
-              return <li>{g.name}</li>;
+        <MentalMeter />
+        <PhysicalMeter />
+        <EmotionalMeter />
+        Emotion Goals
+        {props.goals
+          ? props.goals.map((g) => {
+              return <div key={g.id}>{g.name}</div>;
             })
-            : "Loading goals"}
-        </ul>
+          : 'Loading goals'}
 
         <Navbar />
       </div>
@@ -43,7 +44,7 @@ export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany({
       where: {
-        catagory_name: "emotional",
+        catagory_name: 'emotional',
       },
     });
 
@@ -54,7 +55,7 @@ export const getServerSideProps = async () => {
     return {
       redirect: {
         permanent: false,
-        destination: "/",
+        destination: '/',
       },
     };
   }
