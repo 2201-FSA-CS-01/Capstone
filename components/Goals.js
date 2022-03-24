@@ -2,7 +2,7 @@ import { useAppContext } from './context/state.js';
 
 function Goals() {
   const myContext = useAppContext();
-  console.log('MYCONTEXT', myContext);
+
   return (
     <div>
       <ul className="flex flex-col items-center my-6">
