@@ -16,10 +16,13 @@ const index = (props) => {
     //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
       <div>
-        <MentalMeter />
-        <PhysicalMeter />
-        <EmotionalMeter />
-        <div className="box-border border-4 m-4 h-50 w-50 p-4 rounded-md border-solid border-teal-500">
+        <div className="box-border border-4 m-4 h-50 w-50 p-1 rounded-md border-solid border-teal-500">
+          <MentalMeter />
+          <PhysicalMeter />
+          <EmotionalMeter />
+          <br />
+        </div>
+        <div className="box-border m-4 h-50 w-50 p-1">
           <h1 className="heading text-3xl text-slate-100 font-Manrope text-center">
             Mental Goals
           </h1>
