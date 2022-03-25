@@ -2,16 +2,10 @@ import Image from 'next/image';
 
 import forest from '../public/images/image.png';
 import tomo from '../public/images/tomo.gif';
-import heart from '../public/images/heart.gif';
-import brain from '../public/images/brain.gif';
-import dumbbell from '../public/images/dumbbell.gif';
-import { useAppContext } from './context/state.js';
 
-import Navbar from './Navbar';
-import React, { useState, useEffect } from 'react';
+import renderImage from './context/renderImage';
 
 function Field() {
-  const myContext = useAppContext();
   return (
     <>
       <div className="flex items-end justify-center mt-4">
@@ -19,20 +13,7 @@ function Field() {
         <div className="absolute mb-12 ">
           <Image src={tomo} alt="" width={90} height={70} />
         </div>
-        {myContext.emotionalValue <= 25 ? (
-          <div className="absolute mb-40">
-            <Image src={heart} alt="" width={50} height={50} />
-          </div>
-        ) : (
-          ''
-        )}
-
-        {/* <div className="absolute mb-40">
-          <Image src={brain} alt="" width={50} height={50} />
-        </div> */}
-        {/* <div className="absolute mb-40">
-          <Image src={dumbbell} alt="" width={70} height={60} />
-        </div> */}
+        {renderImage()}
       </div>
     </>
   );
