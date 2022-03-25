@@ -27,18 +27,18 @@ const index = (props) => {
             <ul className="flex flex-col items-center ">
               {props.goals
                 ? props.goals.map((g) => {
-                    return (
-                      <li
-                        key={g.id}
-                        onClick={myContext.submitEmotional}
-                        className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-5000 text-slate-100 font-Manrope shadow-cyan-500/100"
-                      >
-                        <button className="pt-2 justify-items-center ">
-                          {g.name}
-                        </button>
-                      </li>
-                    );
-                  })
+                  return (
+                    <li
+                      key={g.id}
+                      onClick={myContext.submitEmotional}
+                      className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-5000 text-slate-100 font-Manrope shadow-cyan-500/100"
+                    >
+                      <button className="pt-2 justify-items-center ">
+                        {g.name}
+                      </button>
+                    </li>
+                  );
+                })
                 : "Loading goals"}
             </ul>
           </div>
