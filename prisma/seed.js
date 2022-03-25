@@ -5,102 +5,102 @@ const prisma = new PrismaClient();
 const taskData = [
   {
     catagory_name: "mental",
-    name: "get a full night rest (6-8 hours)",
+    name: "Full night rest",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "5 minutes of meditation",
+    name: "5 minutes: meditation",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "perform 1 act of random kindness",
+    name: "1 act of random kindness",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "read for 15 minutes",
+    name: "Read: 15 minutes",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "journal your thoughts",
+    name: "Journal thoughts",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "create something (art, food, music, ect...)",
+    name: "Create something",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "laugh",
+    name: "Laugh",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "take a break from social media",
+    name: "Social media: break",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "practice 2 minutes of controlled breathing",
+    name: "Controlled breathing",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "enjoy simple pleasures (fresh towel, iced beverage)",
+    name: "Enjoy simple pleasures",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "foster gratitude: list 3 things you are grateful for",
+    name: "3 things you are grateful for",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "learn something new",
+    name: "Learn something new",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "spend time with a friend",
+    name: "Spend time with friend",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "practice forgiveness",
+    name: "Practice forgiveness",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "express gratitude: thank a stranger",
+    name: "Thank a stranger",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "connect with a friend",
+    name: "Connect with friend",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "write a thank you note",
+    name: "Write thank you note",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "2 minutes of controlled breathing",
+    name: "Controlled breathing",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "clean a disorganized space",
+    name: "Clean disorganized space",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "list 5 specific things you would like to improve",
+    name: "5 things to improve",
     value: 1,
   },
   {
@@ -110,22 +110,22 @@ const taskData = [
   },
   {
     catagory_name: "emotional",
-    name: "list 1 thing you love about 5 different people",
+    name: "List what you love",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "smile at people you pass on the street",
+    name: "Smile at strangers",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "gift something you are no longer using",
+    name: "Donate unused item",
     value: 1,
   },
   {
     catagory_name: "physical",
-    name: "15 minutes of yoga",
+    name: "Yoga: 15 minutes",
     value: 1,
   },
   {
@@ -160,17 +160,17 @@ const taskData = [
   },
   {
     catagory_name: "physical",
-    name: "prepare a healthy meal",
+    name: "prepare healthy meal",
     value: 1,
   },
   {
     catagory_name: "physical",
-    name: "eat a healthy snack",
+    name: "eat healthy snack",
     value: 1,
   },
   {
     catagory_name: "physical",
-    name: "drink 1 glass of water",
+    name: "drink glass of water",
     value: 1,
   },
   {
@@ -180,7 +180,7 @@ const taskData = [
   },
   {
     catagory_name: "physical",
-    name: "take a daily vitamin",
+    name: "take daily vitamin",
     value: 1,
   },
 ];
