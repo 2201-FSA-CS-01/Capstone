@@ -15,8 +15,8 @@ const index = (props) => {
   if (session) {
     //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
-      <div>
-        <div className="box-border border-4 m-4 h-50 w-50 p-1 rounded-md border-solid border-teal-500">
+      <div className="py-36">
+        <div className="border-2 border-solid border-white rounded-md mx-4 fixed inset-x-0 top-0 h-50 w-50 p-1 bg-gray-800">
           <MentalMeter />
           <PhysicalMeter />
           <EmotionalMeter />
@@ -34,7 +34,7 @@ const index = (props) => {
                       <li
                         key={g.id}
                         onClick={myContext.submitEmotional}
-                        className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-5000 text-slate-100 font-Manrope shadow-cyan-500/100"
+                        className="flex flex-col w-5/6 h-16 my-4 text-3xl truncate shadow-md rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-5000 text-slate-100 font-Manrope shadow-cyan-500/100"
                       >
                         <button className="pt-2 justify-items-center ">
                           {g.name}
@@ -46,7 +46,9 @@ const index = (props) => {
             </ul>
           </div>
         </div>
-        <Navbar />
+        <div className="mx-4 fixed inset-x-0 bottom-0">
+          <Navbar />
+        </div>
       </div>
     );
   }
@@ -55,7 +57,7 @@ const index = (props) => {
       Not signed in <br />
       <button onClick={() => signIn()}>Sign in</button>
       <Link href="/emotional" className="">
-        Mental Goals
+        Emotional Goals
       </Link>
     </>
   );
