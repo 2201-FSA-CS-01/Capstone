@@ -12,6 +12,7 @@ const index = (props) => {
   const myContext = useAppContext();
 
   const { data: session } = useSession();
+
   if (session) {
     //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
@@ -36,7 +37,7 @@ const index = (props) => {
                         onClick={myContext.submitPhysical}
                         className="flex flex-col w-5/6 h-16 my-4 text-3xl truncate shadow-md rounded-lg bg-gradient-to-r from-yellow-400 via-gold-500 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
                       >
-                        <button className="pt-2 justify-items-center ">
+                        <button className="pt-4 justify-items-center ">
                           {g.name}
                         </button>
                       </li>
@@ -56,7 +57,7 @@ const index = (props) => {
     <>
       Not signed in <br />
       <button onClick={() => signIn()}>Sign in</button>
-      <Link href="/physical" className="">
+      <Link href="/emotional" className="">
         Physical Goals
       </Link>
     </>
