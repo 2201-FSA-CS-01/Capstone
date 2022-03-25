@@ -1,17 +1,18 @@
-import React from "react";
-import prisma from "../../utils/prisma";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
-import MentalMeter from "../../components/Meters/MentalMeter";
-import PhysicalMeter from "../../components/Meters/PhysicalMeter";
-import EmotionalMeter from "../../components/Meters/EmotionalMeter";
-import Navbar from "../../components/Navbar";
-import { useAppContext } from "../../components/context/state";
+import React from 'react';
+import prisma from '../../utils/prisma';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import Link from 'next/link';
+import MentalMeter from '../../components/Meters/MentalMeter';
+import PhysicalMeter from '../../components/Meters/PhysicalMeter';
+import EmotionalMeter from '../../components/Meters/EmotionalMeter';
+import Navbar from '../../components/Navbar';
+import { useAppContext } from '../../components/context/state';
 
 const index = (props) => {
   const myContext = useAppContext();
 
   const { data: session } = useSession();
+
   if (session) {
     //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
@@ -46,9 +47,10 @@ const index = (props) => {
             </ul>
           </div>
         </div>
-        <Navbar />
       </div>
-    );
+      <Navbar />
+    </div>
+  );
   }
   return (
     <>
@@ -67,7 +69,7 @@ export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany({
       where: {
-        catagory_name: "mental",
+        catagory_name: 'mental',
       },
     });
 
@@ -78,7 +80,7 @@ export const getServerSideProps = async () => {
     return {
       redirect: {
         permanent: false,
-        destination: "/",
+        destination: '/',
       },
     };
   }
