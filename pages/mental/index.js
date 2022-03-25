@@ -12,6 +12,7 @@ const index = (props) => {
   const myContext = useAppContext();
 
   const { data: session } = useSession();
+
   if (session) {
     //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
