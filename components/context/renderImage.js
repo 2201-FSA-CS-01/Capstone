@@ -44,7 +44,7 @@ export default function renderImage() {
     myContext.physicalValue === 100
   ) {
     return (
-      <div className="absolute">
+      <div className="absolute lg:w-72 lg:h-72">
         <Image src={stars} alt="" width={500} height={500} />
       </div>
     );
