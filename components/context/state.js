@@ -34,7 +34,7 @@ export function AppWrapper({ children }) {
 
   function submitMental() {
     if (mentalValue >= 100) return;
-    setMentalValue(mentalValue + 10);
+    setMentalValue(mentalValue + 5);
   }
 
   // function decreaseMentalMeter() {
@@ -46,13 +46,13 @@ export function AppWrapper({ children }) {
   function submitPhysical() {
     setPhysicalValue(function (prev) {
       if (prev >= 100) return;
-      return prev + 10;
+      return prev + 5;
     });
   }
   function submitEmotional() {
     setEmotionalValue(function (prev) {
       if (prev >= 100) return;
-      return prev + 10;
+      return prev + 5;
     });
   }
 

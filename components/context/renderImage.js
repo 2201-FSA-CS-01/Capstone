@@ -45,7 +45,7 @@ export default function renderImage() {
   ) {
     return (
       <div className="absolute lg:w-72 lg:h-72">
-        <Image src={stars} alt="" width={500} height={500} />
+        <Image src={stars} alt="" width={500} height={380} />
       </div>
     );
   }

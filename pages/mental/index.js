@@ -9,6 +9,7 @@ import Navbar from '../../components/Navbar';
 import { useAppContext } from '../../components/context/state';
 
 const index = (props) => {
+  console.log(props);
   const myContext = useAppContext();
 
   const { data: session } = useSession();
