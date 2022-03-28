@@ -49,8 +49,9 @@ const index = (props) => {
         </div>
       </div>
       <Navbar />
-    </div>
-  );
+  </div>
+
+);
   }
   return (
     <>
