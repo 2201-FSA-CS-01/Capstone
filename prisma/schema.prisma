@@ -66,7 +66,6 @@ model UserTask {
   id          Int       @id @default(autoincrement())
   user_id     String
   user        User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
-  status      Boolean   @default(false)
   completedAt DateTime?
   completed   Boolean   @default(false)
   task_id     Int
