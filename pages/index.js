@@ -14,10 +14,7 @@ export default function Component() {
   return (
     <main className="mx-auto flex flex-col  min-h-screen w-full items-center justify-center bg-gray-900 text-white font-signIn">
       <div className="text-center text-4xl font-bold font-signin">TOMO</div>
-      <button onClick={() => signIn()}>Please log in</button>
-      <Link href='/signUpPage'>
-        <div>Create Profile</div>
-      </Link>
+      <button onClick={() => signIn()}>Please log in/Create Profile</button>
     </main>
   );
 }
