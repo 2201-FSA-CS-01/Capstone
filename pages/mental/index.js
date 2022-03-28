@@ -31,6 +31,7 @@ const index = (props) => {
             <ul className="flex flex-col items-center ">
               {props.goals
                 ? props.goals.map((g) => {
+
                     return (
                       <li
                         key={g.id}
@@ -46,7 +47,9 @@ const index = (props) => {
                 : "Loading goals"}
             </ul>
           </div>
+
         </div>
+
         <div className="mx-4 fixed inset-x-0 bottom-0">
           <Navbar />
         </div>
