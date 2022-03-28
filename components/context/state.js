@@ -12,7 +12,7 @@ export function AppWrapper({ children }) {
     const interval = setInterval(() => {
       if (mentalValue <= 0) return;
       return setMentalValue((prev) => prev - 5);
-    }, 10000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [mentalValue]);
 
@@ -20,7 +20,7 @@ export function AppWrapper({ children }) {
     const interval = setInterval(() => {
       if (physicalValue <= 0) return;
       return setPhysicalValue((prev) => prev - 5);
-    }, 10000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [physicalValue]);
 
@@ -28,7 +28,7 @@ export function AppWrapper({ children }) {
     const interval = setInterval(() => {
       if (emotionalValue <= 0) return;
       return setEmotionalValue((prev) => prev - 5);
-    }, 10000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [emotionalValue]);
 
