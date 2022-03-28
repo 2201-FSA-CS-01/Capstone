@@ -1,6 +1,7 @@
 import React from "react"
 import { useSession, signIn, signOut } from "next-auth/react";
 import Navbar from "../../components/Navbar";
+import Link from "next/link";
 
 const profile = () => {
   return (
@@ -17,7 +18,9 @@ const profile = () => {
 
       </ul>
       <dev className="flex flex-col fixed bottom-0 w-full" >
-        <button className="text-center bg-gray-200 border-2 border-white rounded-md shadow-md shadow-black" onClick={() => signOut()}>Sign out</button>
+        <Link href="/signUpPage">
+          <button className="text-center bg-gray-200 border-2 border-white rounded-md shadow-md shadow-black" onClick={() => signOut()}>Sign out</button>
+        </Link>
         <Navbar />
       </dev>
     </dev>

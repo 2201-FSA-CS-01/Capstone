@@ -31,26 +31,26 @@ const index = (props) => {
             <ul className="flex flex-col items-center ">
               {props.goals
                 ? props.goals.map((g) => {
-                    return (
-                      <li
-                        key={g.id}
-                        onClick={myContext.submitMental}
-                        className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
-                      >
-                        <button className="pt-2 justify-items-center ">
-                          {g.name}
-                        </button>
-                      </li>
-                    );
-                  })
+                  return (
+                    <li
+                      key={g.id}
+                      onClick={myContext.submitMental}
+                      className="flex flex-col w-5/6 h-16 my-4 text-3xl text-shadow-lg truncate shadow-md rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
+                    >
+                      <button className="pt-2 justify-items-center ">
+                        {g.name}
+                      </button>
+                    </li>
+                  );
+                })
                 : "Loading goals"}
             </ul>
           </div>
+
         </div>
-      </div>
-      <Navbar />
-    </div>
-  );
+        <Navbar />
+      </div >
+    );
   }
   return (
     <>
