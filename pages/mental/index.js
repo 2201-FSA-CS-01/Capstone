@@ -1,7 +1,6 @@
 import React from "react";
 import prisma from "../../utils/prisma";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
 import MentalMeter from "../../components/Meters/MentalMeter";
 import PhysicalMeter from "../../components/Meters/PhysicalMeter";
 import EmotionalMeter from "../../components/Meters/EmotionalMeter";
@@ -10,9 +9,12 @@ import { useAppContext } from "../../components/context/state";
 import LoggedOut from "../../pages/loggedOut/index";
 
 const index = (props) => {
-  console.log(props);
+  const updateXP = async (id) => {
+    await fetch("api/experience/mentalxp", {
+      method: "PUT",
+    });
+  };
   const myContext = useAppContext();
-
   const { data: session } = useSession();
 
   if (session) {
@@ -36,12 +38,15 @@ const index = (props) => {
                     return (
                       <li
                         key={goals.id}
-                        onClick={myContext.submitMental}
+                        onClick={() => {
+                          updateXP();
+                          myContext.submitMental();
+                        }}
                         className="flex flex-col w-5/6 h-16 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
                       >
-                        <button className="pt-4 justify-items-center ">
+                        <h1 className="pt-4 justify-items-center ">
                           {goals.name}
-                        </button>
+                        </h1>
                       </li>
                     );
                   })
@@ -53,7 +58,6 @@ const index = (props) => {
         <div className="fixed inset-x-0 bottom-0 mx-4">
           <Navbar />
         </div>
-        <Navbar />
       </div>
     );
   }

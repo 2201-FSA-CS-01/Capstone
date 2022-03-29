@@ -1,4 +1,4 @@
-import { useAppContext } from '../context/state.js';
+import { useAppContext } from "../context/state.js";
 
 function MentalMeter() {
   const myContext = useAppContext();

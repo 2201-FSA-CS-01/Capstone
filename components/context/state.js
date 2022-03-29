@@ -34,27 +34,26 @@ export function AppWrapper({ children }) {
   }, []);
 
   function submitMental() {
-    if (mentalValue >= 100) return;
-    setMentalValue((prev) => prev + 5);
+    if (mentalValue >= 100) {
+      setMentalValue(100);
+    } else {
+      setMentalValue((prev) => prev + 20);
+    }
   }
-
-  // function decreaseMentalMeter() {
-  //   console.log(mentalValue);
-  //   if (mentalValue <= 0) return;
-  //   return setMentalValue(mentalValue - 10);
-  // }
 
   function submitPhysical() {
-    setPhysicalValue(function (prev) {
-      if (prev >= 100) return;
-      return prev + 5;
-    });
+    if (physicalValue >= 100) {
+      setPhysicalValue(100);
+    } else {
+      setPhysicalValue((prev) => prev + 20);
+    }
   }
   function submitEmotional() {
-    setEmotionalValue(function (prev) {
-      if (prev >= 100) return;
-      return prev + 5;
-    });
+    if (emotionalValue >= 100) {
+      setEmotionalValue(100);
+    } else {
+      setEmotionalValue((prev) => prev + 20);
+    }
   }
 
   let sharedState = {

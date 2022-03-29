@@ -3,8 +3,9 @@ import prisma from "../../../utils/prisma";
 
 export default async function handler(req, res) {
   const session = await getSession({ req });
-  try {
-    if (req.method === "GET") {
+
+  if (req.method === "GET") {
+    try {
       const user = await prisma.user.findUnique({
         where: {
           email: session.user.email,
@@ -12,28 +13,43 @@ export default async function handler(req, res) {
       });
       console.log(user);
       res.send(user.mentalxp);
+    } catch (err) {
+      console.log(err);
     }
-  } catch (err) {
-    console.log(err);
   }
+
   if (req.method === "PUT") {
     try {
-      const { mentalValue } = req.body;
-      console.log(req.body);
       if (session.user.email) {
-        const userTask = await prisma.userTask.upsert({
-          where: {
-            user_email: session.user.email,
-          },
-          update: {
-            completedAt: new Date(),
-            completed: true,
-          },
-          create: {
-            user_email: session.user.email,
-            task_id: req.body.id,
-          },
+        const { mentalxp } = await prisma.user.findUnique({
+          where: { email: session.user.email },
         });
+        if (mentalxp < 100) {
+          const updateMentalXp = await prisma.user.update({
+            where: { email: session.user.email },
+            data: {
+              mentalxp: {
+                increment: 20,
+              },
+            },
+          });
+        }
+
+        //Create UserTask if not one⬇️
+
+        // const userTask = await prisma.userTask.upsert({
+        //   where: {
+        //     user_email: session.user.email,
+        //   },
+        //   update: {
+        //     completedAt: new Date(),
+        //     completed: true,
+        //   },
+        //   create: {
+        //     user_email: session.user.email,
+        //     task_id: req.body.id,
+        //   },
+        // });
 
         // const user = await prisma.user.update({
         //   where: {
