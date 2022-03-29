@@ -20,14 +20,14 @@ const index = (props) => {
   if (session) {
     //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
-      <div className="py-36">
-        <div className="fixed inset-x-0 top-0 p-1 mx-4 bg-gray-800 border-2 border-white border-solid rounded-md h-50 w-50">
+      <div className="py-44">
+        <div className="fixed inset-x-0 top-0 w-100 mb-1 bg-gray-800 border-2 border-white border-solid rounded-md">
           <MentalMeter />
           <PhysicalMeter />
           <EmotionalMeter />
           <br />
         </div>
-        <div className="box-border p-1 m-4 h-50 w-50">
+        <div className="box-border p-1 m-4">
           <h1 className="text-3xl text-center heading text-slate-100 font-Manrope">
             Mental Goals
           </h1>
@@ -42,11 +42,11 @@ const index = (props) => {
                           updateXP();
                           myContext.submitMental();
                         }}
-                        className="flex flex-col w-5/6 h-16 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
+                        className="flex flex-col w-96 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
                       >
-                        <h1 className="pt-4 justify-items-center ">
+                        <button className="py-2 justify-items-center hover:bg-gradient-to-r from-green-500 to-blue-600">
                           {goals.name}
-                        </h1>
+                        </button>
                       </li>
                     );
                   })
@@ -55,7 +55,7 @@ const index = (props) => {
           </div>
         </div>
 
-        <div className="fixed inset-x-0 bottom-0 mx-4">
+        <div className="fixed inset-x-0 bottom-0 w-100 mt-1">
           <Navbar />
         </div>
       </div>
