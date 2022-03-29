@@ -1,11 +1,11 @@
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
 const taskData = [
   {
-    catagory_name: "mental",
-    name: "Full night rest",
+    catagory_name: 'mental',
+    name: 'Full night rest',
     value: 1,
   },
   {
@@ -19,23 +19,23 @@ const taskData = [
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Read: 15 minutes",
+    catagory_name: 'mental',
+    name: 'Read: 15 minutes',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Journal thoughts",
+    catagory_name: 'mental',
+    name: 'Journal thoughts',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Create something",
+    catagory_name: 'mental',
+    name: 'Create something',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Laugh",
+    catagory_name: 'mental',
+    name: 'Laugh',
     value: 1,
   },
   {
@@ -74,8 +74,8 @@ const taskData = [
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Thank a stranger",
+    catagory_name: 'emotional',
+    name: 'Thank a stranger',
     value: 1,
   },
   {
@@ -109,51 +109,53 @@ const taskData = [
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "List what you love",
+    catagory_name: 'emotional',
+    name: 'List what you love',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Smile at strangers",
+    catagory_name: 'emotional',
+    name: 'Smile at strangers',
     value: 1,
   },
   {
+
     catagory_name: "emotional",
     name: "Donate something",
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "Yoga: 15 minutes",
+    catagory_name: 'physical',
+    name: 'Yoga: 15 minutes',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "5 pushups",
+    catagory_name: 'physical',
+    name: '5 pushups',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "10 minute walk",
+    catagory_name: 'physical',
+    name: '10 minute walk',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "10 crunches",
+    catagory_name: 'physical',
+    name: '10 crunches',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "15 jumping jacks",
+    catagory_name: 'physical',
+    name: '15 jumping jacks',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "1 minute plank",
+    catagory_name: 'physical',
+    name: '1 minute plank',
     value: 1,
   },
   {
+
     catagory_name: "physical",
     name: "skip a bad habbit",
     value: 1,
@@ -164,36 +166,37 @@ const taskData = [
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "eat healthy snack",
+    catagory_name: 'physical',
+    name: 'eat healthy snack',
     value: 1,
   },
   {
+
     catagory_name: "physical",
     name: "drink water",
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "stretch",
+    catagory_name: 'physical',
+    name: 'stretch',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "take daily vitamin",
+    catagory_name: 'physical',
+    name: 'take daily vitamin',
     value: 1,
   },
 ];
 
 async function main() {
-  console.log("Start seeding ...");
+  console.log('Start seeding ...');
   for (const u of taskData) {
     const task = await prisma.task.create({
       data: u,
     });
     console.log(`Created task with id:${task.id}`);
   }
-  console.log("Seeding finished.");
+  console.log('Seeding finished.');
 }
 
 main()

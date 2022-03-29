@@ -45,12 +45,9 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  level         Int?       @default(1)
-  exp           Int?       @default(0)
-  emotionalxp   Int?       @default(0)
-  physicalxp    Int?       @default(0)
-  mentalxp      Int?       @default(0)
-  //userTask      UserTask[]
+  emotionalxp   Int?       @default(20)
+  physicalxp    Int?       @default(20)
+  mentalxp      Int?       @default(20)
   UserTask      UserTask[]
 }
 
@@ -64,8 +61,8 @@ model Task {
 
 model UserTask {
   id          Int       @id @default(autoincrement())
-  user_id     String
-  user        User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  user_email  String
+  user        User      @relation(fields: [user_email], references: [email], onDelete: Cascade)
   completedAt DateTime?
   completed   Boolean   @default(false)
   task_id     Int

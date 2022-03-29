@@ -1,5 +1,4 @@
-import { getProviders, signIn } from 'next-auth/react';
-// import { FcGoogle } from "react-icons/fc";
+import { getProviders, signIn } from "next-auth/react";
 export default function SignIn({ providers }) {
   return (
     <main className="flex items-center justify-center w-full min-h-screen mx-auto text-white bg-gray-900">
@@ -11,13 +10,12 @@ export default function SignIn({ providers }) {
               className="w-1/2 py-2 mx-auto duration-300 transform bg-indigo-600 rounded-sm shadow-md hover:bg-indigo-400"
               onClick={() =>
                 signIn(provider.id, {
-                  callbackUrl: 'http://localhost:3000/dashboard',
+                  callbackUrl: "https://capstone-woad-six.vercel.app/dashboard",
                 })
               }
             >
               <div className="flex items-center justify-center space-x-3 ">
-                <h3 className="font-semibold font-signin">Sign in with</h3>{' '}
-                {/* <FcGoogle size="1.5rem" /> */}
+                <h3 className="font-semibold font-signin">Sign in with</h3>{" "}
               </div>
             </button>
           </div>
