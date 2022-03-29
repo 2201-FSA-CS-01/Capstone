@@ -10,6 +10,8 @@ import stars from '../../public/images/stars.gif';
 
 export default function renderImage() {
   const myContext = useAppContext();
+
+  // o: notice any patterns in the code block below?
   if (
     myContext.emotionalValue <= 25 &&
     myContext.mentalValue <= 25 &&
@@ -49,4 +51,21 @@ export default function renderImage() {
       </div>
     );
   }
+
+  // o: example of simplifying above code
+  // if (
+  //   myContext.emotionalValue <= 25 &&
+  //   myContext.mentalValue <= 25 &&
+  //   myContext.physicalValue <= 25
+  // ) {
+  //   const src = "storm";
+  //   const width = 50;
+  //   const height = 100;
+  // }
+
+  // return (
+  //   <div className="absolute">
+  //     <Image src={src} alt="" width={width} height={height} />
+  //   </div>
+  // );
 }

@@ -5,6 +5,7 @@ export default function SignIn({ providers }) {
     <main className="flex items-center justify-center w-full min-h-screen mx-auto text-white bg-gray-900">
       <section className="flex w-[30rem] flex-col space-y-10">
         <div className="text-4xl font-medium text-center font-signin">TOMO</div>
+        {/* o: is it me, or will this code break if you deploy it... look into environment variables on next.js */}
         {Object.values(providers).map((provider) => (
           <div className="flex items-center w-full" key={provider.name}>
             <button

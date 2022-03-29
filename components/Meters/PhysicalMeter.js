@@ -5,6 +5,7 @@ function PhysicalMeter() {
   return (
     <>
       <div className="flex justify-between mt-4 ">
+        {/* o: remove if not being used */}
         {/* <span className="mx-4 text-base font-medium text-white">
           Physical Health
         </span> */}

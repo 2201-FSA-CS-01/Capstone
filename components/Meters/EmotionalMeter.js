@@ -5,6 +5,7 @@ function EmotionalMeter() {
   return (
     <>
       <div className="flex justify-between mt-4 mb-1">
+        {/* o: remove if not being used */}
         {/* <span className="mx-4 mt-4 text-base font-medium text-white">
           Emotional Health
         </span> */}

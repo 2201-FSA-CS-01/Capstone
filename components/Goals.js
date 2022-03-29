@@ -29,6 +29,7 @@ function Goals() {
 
 export default Goals;
 
+// o: remove if not needed
 //How to add wiggle animation on button if we'd like
 // className={`${
 //             effect && 'animate-wiggle'

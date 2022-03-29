@@ -2,6 +2,7 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
+// o: you can place this in a json file and require it
 const taskData = [
   {
     catagory_name: "mental",

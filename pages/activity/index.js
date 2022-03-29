@@ -5,8 +5,6 @@ import { Pie } from 'react-chartjs-2';
 import Image from "next/image";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
-
 import forest from '/Users/dougsellers/Desktop/MyApps/Capstone/public/images/image.png';
 import tomo from '/Users/dougsellers/Desktop/MyApps/Capstone/public/images/tomo.gif';
 

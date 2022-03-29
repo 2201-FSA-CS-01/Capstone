@@ -28,6 +28,8 @@ const index = (props) => {
           </h1>
           <div>
             <ul className="flex flex-col items-center ">
+              {/* o: please use better variable names, not "g" */}
+              {/* o: also, consider creating a sub-component when rendering gets complex like this and is repeated */}
               {props.goals
                 ? props.goals.map((g) => {
                     return (
