@@ -1,199 +1,199 @@
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
 const taskData = [
   {
-    catagory_name: "mental",
-    name: "Full night rest",
+    catagory_name: 'mental',
+    name: 'Full night rest',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "5 minutes: meditation",
+    catagory_name: 'mental',
+    name: '5 minutes: meditation',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "1 act of random kindness",
+    catagory_name: 'mental',
+    name: '1 act of random kindness',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Read: 15 minutes",
+    catagory_name: 'mental',
+    name: 'Read: 15 minutes',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Journal thoughts",
+    catagory_name: 'mental',
+    name: 'Journal thoughts',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Create something",
+    catagory_name: 'mental',
+    name: 'Create something',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Laugh",
+    catagory_name: 'mental',
+    name: 'Laugh',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Social media: break",
+    catagory_name: 'mental',
+    name: 'Social media: break',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Controlled breathing",
+    catagory_name: 'mental',
+    name: 'Controlled breathing',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Enjoy simple pleasures",
+    catagory_name: 'mental',
+    name: 'Enjoy simple pleasures',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "3 things you are grateful for",
+    catagory_name: 'mental',
+    name: '3 things you are grateful for',
     value: 1,
   },
   {
-    catagory_name: "mental",
-    name: "Learn something new",
+    catagory_name: 'mental',
+    name: 'Learn something new',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Spend time with friend",
+    catagory_name: 'emotional',
+    name: 'Spend time with friend',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Practice forgiveness",
+    catagory_name: 'emotional',
+    name: 'Practice forgiveness',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Thank a stranger",
+    catagory_name: 'emotional',
+    name: 'Thank a stranger',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Connect with friend",
+    catagory_name: 'emotional',
+    name: 'Connect with friend',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Write thank you note",
+    catagory_name: 'emotional',
+    name: 'Write thank you note',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Controlled breathing",
+    catagory_name: 'emotional',
+    name: 'Controlled breathing',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Clean disorganized space",
+    catagory_name: 'emotional',
+    name: 'Clean disorganized space',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "5 things to improve",
+    catagory_name: 'emotional',
+    name: '5 things to improve',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "share a happy memory",
+    catagory_name: 'emotional',
+    name: 'share a happy memory',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "List what you love",
+    catagory_name: 'emotional',
+    name: 'List what you love',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Smile at strangers",
+    catagory_name: 'emotional',
+    name: 'Smile at strangers',
     value: 1,
   },
   {
-    catagory_name: "emotional",
-    name: "Donate unused item",
+    catagory_name: 'emotional',
+    name: 'Donate unused item',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "Yoga: 15 minutes",
+    catagory_name: 'physical',
+    name: 'Yoga: 15 minutes',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "5 pushups",
+    catagory_name: 'physical',
+    name: '5 pushups',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "10 minute walk",
+    catagory_name: 'physical',
+    name: '10 minute walk',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "10 crunches",
+    catagory_name: 'physical',
+    name: '10 crunches',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "15 jumping jacks",
+    catagory_name: 'physical',
+    name: '15 jumping jacks',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "1 minute plank",
+    catagory_name: 'physical',
+    name: '1 minute plank',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "skip unhealthy vice",
+    catagory_name: 'physical',
+    name: 'skip unhealthy vice',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "prepare healthy meal",
+    catagory_name: 'physical',
+    name: 'prepare healthy meal',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "eat healthy snack",
+    catagory_name: 'physical',
+    name: 'eat healthy snack',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "drink glass of water",
+    catagory_name: 'physical',
+    name: 'drink glass of water',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "stretch",
+    catagory_name: 'physical',
+    name: 'stretch',
     value: 1,
   },
   {
-    catagory_name: "physical",
-    name: "take daily vitamin",
+    catagory_name: 'physical',
+    name: 'take daily vitamin',
     value: 1,
   },
 ];
 
 async function main() {
-  console.log("Start seeding ...");
+  console.log('Start seeding ...');
   for (const u of taskData) {
     const task = await prisma.task.create({
       data: u,
     });
     console.log(`Created task with id:${task.id}`);
   }
-  console.log("Seeding finished.");
+  console.log('Seeding finished.');
 }
 
 main()
