@@ -2,13 +2,12 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import Image from 'next/image';
+import Image from "next/image";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-import trees from '../../public/images/trees.gif'
-import woods from '../../public/images/darkWoods.jpeg'
+import trees from "../../public/images/trees.gif";
+import woods from "../../public/images/darkWoods.jpeg";
 // import tomo from "/images/tomo.gif";
-
 
 export const data = {
   labels: ["Mental", "Physical", "Emotional", "Inactive"],
