@@ -1,10 +1,10 @@
-import { getSession } from "next-auth/react";
-import prisma from "../../../utils/prisma";
+import { getSession } from 'next-auth/react';
+import prisma from '../../../utils/prisma';
 
 export default async function handler(req, res) {
   const session = await getSession({ req });
 
-  if (req.method === "GET") {
+  if (req.method === 'GET') {
     try {
       const user = await prisma.user.findUnique({
         where: {
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     }
   }
 
-  if (req.method === "PUT") {
+  if (req.method === 'PUT') {
     try {
       if (session.user.email) {
         const { mentalxp } = await prisma.user.findUnique({
@@ -33,7 +33,9 @@ export default async function handler(req, res) {
               },
             },
           });
+          res.status(200).send(updateMentalXp);
         }
+        res.end();
 
         //Create UserTask if not one⬇️
 
@@ -61,7 +63,6 @@ export default async function handler(req, res) {
         // });
         // res.status(200).send(user, userTask);
       }
-      res.status(200);
     } catch (err) {
       console.log(err);
     }
