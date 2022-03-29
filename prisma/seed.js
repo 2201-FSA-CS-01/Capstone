@@ -10,12 +10,12 @@ const taskData = [
   },
   {
     catagory_name: "mental",
-    name: "5 minutes: meditation",
+    name: "Meditate",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "1 act of random kindness",
+    name: "1 act of kindness",
     value: 1,
   },
   {
@@ -40,37 +40,37 @@ const taskData = [
   },
   {
     catagory_name: "mental",
-    name: "Social media: break",
+    name: "Social media break",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "Controlled breathing",
+    name: "Deap breathing",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "Enjoy simple pleasures",
+    name: "Enjoy simple pleasure",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "3 things you are grateful for",
+    name: "be grateful",
     value: 1,
   },
   {
     catagory_name: "mental",
-    name: "Learn something new",
+    name: "Learn something",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "Spend time with friend",
+    name: "Time with a friend",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "Practice forgiveness",
+    name: "Forgiveness",
     value: 1,
   },
   {
@@ -80,32 +80,32 @@ const taskData = [
   },
   {
     catagory_name: "emotional",
-    name: "Connect with friend",
+    name: "Contact a friend",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "Write thank you note",
+    name: "Thank someone",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "Controlled breathing",
+    name: "Deap breathing",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "Clean disorganized space",
+    name: "Clean a space",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "5 things to improve",
+    name: "set a goal",
     value: 1,
   },
   {
     catagory_name: "emotional",
-    name: "share a happy memory",
+    name: "reminisce",
     value: 1,
   },
   {
@@ -120,7 +120,7 @@ const taskData = [
   },
   {
     catagory_name: "emotional",
-    name: "Donate unused item",
+    name: "Donate something",
     value: 1,
   },
   {
@@ -155,12 +155,12 @@ const taskData = [
   },
   {
     catagory_name: "physical",
-    name: "skip unhealthy vice",
+    name: "skip a bad habbit",
     value: 1,
   },
   {
     catagory_name: "physical",
-    name: "prepare healthy meal",
+    name: "prepare a good meal",
     value: 1,
   },
   {
@@ -170,7 +170,7 @@ const taskData = [
   },
   {
     catagory_name: "physical",
-    name: "drink glass of water",
+    name: "drink water",
     value: 1,
   },
   {
