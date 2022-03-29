@@ -1,4 +1,4 @@
-import { getProviders, signIn } from 'next-auth/react';
+import { getProviders, signIn } from "next-auth/react";
 // import { FcGoogle } from "react-icons/fc";
 export default function SignIn({ providers }) {
   return (
@@ -11,12 +11,12 @@ export default function SignIn({ providers }) {
               className="w-1/2 py-2 mx-auto duration-300 transform bg-indigo-600 rounded-sm shadow-md hover:bg-indigo-400"
               onClick={() =>
                 signIn(provider.id, {
-                  callbackUrl: 'http://localhost:3000/dashboard',
+                  callbackUrl: "http://localhost:3000/dashboard",
                 })
               }
             >
               <div className="flex items-center justify-center space-x-3 ">
-                <h3 className="font-semibold font-signin">Sign in with</h3>{' '}
+                <h3 className="font-semibold font-signin">Sign in with</h3>{" "}
                 {/* <FcGoogle size="1.5rem" /> */}
               </div>
             </button>

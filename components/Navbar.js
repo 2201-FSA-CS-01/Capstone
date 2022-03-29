@@ -14,12 +14,21 @@ function Navbar() {
               <Image src={tomo} alt="" height={40} width={40} />
             </li>
           </Link>
-          <li>
-            <Image src={goal} alt="" height={40} width={40} />
-          </li>
-          <li>
-            <Image src={user} alt="" height={40} width={40} />
-          </li>
+          <Link>
+            <li>
+              <Image src={goal} alt="" height={40} width={40} />
+            </li>
+          </Link>
+          <Link href="/activity">
+            <li>
+              <Image src={goal} alt="" height={40} width={40} />
+            </li>
+          </Link>
+          <Link href="/profile">
+            <li>
+              <Image src={user} alt="" height={40} width={40} />
+            </li>
+          </Link>
         </ul>
       </div>
     </div>

@@ -7,20 +7,25 @@ import PhysicalMeter from '../../components/Meters/PhysicalMeter';
 import EmotionalMeter from '../../components/Meters/EmotionalMeter';
 import Navbar from '../../components/Navbar';
 import { useAppContext } from '../../components/context/state';
+import LoggedOut from '../../pages/loggedOut/index';
 
 const index = (props) => {
   console.log(props);
   const myContext = useAppContext();
 
   const { data: session } = useSession();
+
   if (session) {
-    //try placing setInterval in here??
+    //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
-      <div>
-        <MentalMeter />
-        <PhysicalMeter />
-        <EmotionalMeter />
-        <div className="box-border p-4 m-4 border-4 border-teal-500 border-solid rounded-md h-50 w-50">
+      <div className="py-36">
+        <div className="fixed inset-x-0 top-0 p-1 mx-4 bg-gray-800 border-2 border-white border-solid rounded-md h-50 w-50">
+          <MentalMeter />
+          <PhysicalMeter />
+          <EmotionalMeter />
+          <br />
+        </div>
+        <div className="box-border p-1 m-4 h-50 w-50">
           <h1 className="text-3xl text-center heading text-slate-100 font-Manrope">
             Mental Goals
           </h1>
@@ -32,9 +37,9 @@ const index = (props) => {
                       <li
                         key={g.id}
                         onClick={myContext.submitMental}
-                        className="flex flex-col w-5/6 h-16 my-4 text-3xl truncate rounded-lg shadow-md text-shadow-lg bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
+                        className="flex flex-col w-5/6 h-16 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
                       >
-                        <button className="pt-2 justify-items-center ">
+                        <button className="pt-4 justify-items-center ">
                           {g.name}
                         </button>
                       </li>
@@ -44,17 +49,22 @@ const index = (props) => {
             </ul>
           </div>
         </div>
+
+        <div className="fixed inset-x-0 bottom-0 mx-4">
+          <Navbar />
+        </div>
         <Navbar />
       </div>
     );
   }
   return (
     <>
-      Not signed in <br />
+      <LoggedOut />
+      {/* Not signed in <br />
       <button onClick={() => signIn()}>Sign in</button>
       <Link href="/emotional" className="">
         Mental Goals
-      </Link>
+      </Link> */}
     </>
   );
 };
