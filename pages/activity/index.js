@@ -2,11 +2,13 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import Image from "next/image";
+import Image from 'next/image';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-import forest from "/images/image.png";
-import tomo from "/images/tomo.gif";
+import trees from '../../public/images/trees.gif'
+import woods from '../../public/images/darkWoods.jpeg'
+// import tomo from "/images/tomo.gif";
+
 
 export const data = {
   labels: ["Mental", "Physical", "Emotional", "Inactive"],
@@ -31,17 +33,17 @@ export default () => (
       <Pie data={data} />
     </div>
 
-    <div className="flex items-end justify-center mt-4 box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
-      <Image src={forest} alt="" height={1400} className="rounded-md" />
-      <div className="absolute mb-12">
+    <div className="flex items-center justify-center mt-2 box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
+      <Image src={woods} alt="" height={600} className="rounded-md" />
+      <div className="absolute w-50 h-80 text-xl font-outline font-semibold">
         <ul>
-          <li className="text-slate-100 font-Manrope shadow-md shadow-black ">
+          <li className="outline outline-1 text-slate-100 font-Manrope shadow-xl shadow-white ">
             Experience Pts:
           </li>
-          <li className="text-slate-100 font-Manrope shadow-md shadow-black">
+          <li className="outline outline-1 text-slate-100 font-Manrope shadow-xl shadow-white">
             Level:
           </li>
-          <li className="text-slate-100 font-Manrope shadow-md shadow-black">
+          <li className="outline outline-1 text-slate-100 font-Manrope shadow-xl shadow-white">
             Goals Completed:
           </li>
         </ul>
