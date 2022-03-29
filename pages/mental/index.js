@@ -7,6 +7,7 @@ import PhysicalMeter from "../../components/Meters/PhysicalMeter";
 import EmotionalMeter from "../../components/Meters/EmotionalMeter";
 import Navbar from "../../components/Navbar";
 import { useAppContext } from "../../components/context/state";
+import LoggedOut from '../../pages/loggedOut/index'
 
 const index = (props) => {
   const myContext = useAppContext();
@@ -32,18 +33,18 @@ const index = (props) => {
               {props.goals
                 ? props.goals.map((g) => {
 
-                    return (
-                      <li
-                        key={g.id}
-                        onClick={myContext.submitMental}
-                        className="flex flex-col w-5/6 h-16 my-4 text-3xl truncate shadow-md rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
-                      >
-                        <button className="pt-4 justify-items-center ">
-                          {g.name}
-                        </button>
-                      </li>
-                    );
-                  })
+                  return (
+                    <li
+                      key={g.id}
+                      onClick={myContext.submitMental}
+                      className="flex flex-col w-5/6 h-16 my-4 text-3xl truncate shadow-md rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
+                    >
+                      <button className="pt-4 justify-items-center ">
+                        {g.name}
+                      </button>
+                    </li>
+                  );
+                })
                 : "Loading goals"}
             </ul>
           </div>
@@ -58,12 +59,14 @@ const index = (props) => {
   }
   return (
     <>
-      Not signed in <br />
+      <LoggedOut />
+      {/* Not signed in <br />
       <button onClick={() => signIn()}>Sign in</button>
       <Link href="/emotional" className="">
         Mental Goals
-      </Link>
+      </Link> */}
     </>
+
   );
 };
 

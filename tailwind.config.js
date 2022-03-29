@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        signIn: ["sans-serif", "M PLUS 2"],
+        mPlus: ["sans-serif", "M PLUS 2"],
         Manrope: ["Montserrat", "sans-serif"],
       },
     },

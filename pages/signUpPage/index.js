@@ -1,20 +1,23 @@
-import React from 'react'
+import React from "react";
 import Link from "next/link";
 
 export default function SignUpPage() {
   return (
-    <main className="mx-auto flex flex-col  min-h-screen w-full items-center justify-center bg-gray-900 text-white box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
-      <h1>Your Profile information</h1>
-      <ul>
-        <li>First Name:</li>
-        <li>Last Name:</li>
-        <li>Email:</li>
-        <li>Password:</li>
-        <li>Re-Enter Password:</li>
-      </ul>
+    <>
       <Link href="/introPage">
-        <div>Submit</div>
+        <main className="mx-auto flex flex-col  min-h-screen w-full items-center justify-center bg-gray-900 text-white  h-50 w-50 p-4 rounded-md border-2">
+          <h2 className="text-center text-3xl font-bold font-mPlus">
+            To love oneself{" "}
+          </h2>
+          <br />
+          <h2 className="text-center text-3xl font-bold font-mPlus">
+            is the beginning of a lifelong companionship
+          </h2>
+          <h1 className="italic text-white text-center opacity-70 bottom-0 fixed p-2 ">
+            Click anywhere for next page
+          </h1>
+        </main>
       </Link>
-    </main>
+    </>
   );
 }
