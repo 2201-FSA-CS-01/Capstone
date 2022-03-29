@@ -1,5 +1,4 @@
 import { getProviders, signIn } from "next-auth/react";
-// import { FcGoogle } from "react-icons/fc";
 export default function SignIn({ providers }) {
   return (
     <main className="flex items-center justify-center w-full min-h-screen mx-auto text-white bg-gray-900">
@@ -17,7 +16,6 @@ export default function SignIn({ providers }) {
             >
               <div className="flex items-center justify-center space-x-3 ">
                 <h3 className="font-semibold font-signin">Sign in with</h3>{" "}
-                {/* <FcGoogle size="1.5rem" /> */}
               </div>
             </button>
           </div>

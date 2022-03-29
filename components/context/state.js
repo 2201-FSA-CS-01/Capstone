@@ -1,40 +1,41 @@
-import { createContext, useContext } from 'react';
-import { useState, useEffect } from 'react';
+import { createContext, useContext } from "react";
+import { useState, useEffect } from "react";
 
 const AppContext = createContext();
 
 export function AppWrapper({ children }) {
-  let [mentalValue, setMentalValue] = useState(100);
-  let [physicalValue, setPhysicalValue] = useState(100);
-  let [emotionalValue, setEmotionalValue] = useState(100);
+  let [mentalValue, setMentalValue] = useState(0);
+  let [physicalValue, setPhysicalValue] = useState(0);
+  let [emotionalValue, setEmotionalValue] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (mentalValue <= 0) return;
-      return setMentalValue((prev) => prev - 5);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [mentalValue]);
-
+    const mentalXP = async () => {
+      const res = await fetch("/api/experience/mentalxp");
+      const data = await res.json();
+      setMentalValue(data);
+    };
+    mentalXP();
+  }, []);
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (physicalValue <= 0) return;
-      return setPhysicalValue((prev) => prev - 5);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [physicalValue]);
-
+    const emotionalXP = async () => {
+      const res = await fetch("/api/experience/emotionalxp");
+      const data = await res.json();
+      setEmotionalValue(data);
+    };
+    emotionalXP();
+  }, []);
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (emotionalValue <= 0) return;
-      return setEmotionalValue((prev) => prev - 5);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [emotionalValue]);
+    const physicalXP = async () => {
+      const res = await fetch("/api/experience/physicalxp");
+      const data = await res.json();
+      setPhysicalValue(data);
+    };
+    physicalXP();
+  }, []);
 
   function submitMental() {
     if (mentalValue >= 100) return;
-    setMentalValue(mentalValue + 5);
+    setMentalValue((prev) => prev + 5);
   }
 
   // function decreaseMentalMeter() {
