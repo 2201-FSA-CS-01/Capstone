@@ -1,9 +1,9 @@
-import { getSession } from 'next-auth/react';
-import prisma from '../../../utils/prisma';
+import { getSession } from "next-auth/react";
+import prisma from "../../../utils/prisma";
 export default async function handler(req, res) {
   const session = await getSession({ req });
   try {
-    if (req.method === 'GET') {
+    if (req.method === "GET") {
       const user = await prisma.user.findUnique({
         where: {
           email: session.user.email,
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     console.log(err);
   }
 
-  if (req.method === 'PUT') {
+  if (req.method === "PUT") {
     try {
       if (session.user.email) {
         const { physicalxp } = await prisma.user.findUnique({
