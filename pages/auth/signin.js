@@ -17,7 +17,7 @@ export default function SignIn({ providers }) {
               className="w-1/2 py-2 mx-auto duration-300 transform bg-indigo-600 rounded-sm shadow-md hover:bg-indigo-400"
               onClick={() =>
                 signIn(provider.id, {
-                  callbackUrl: callbackUrl: `${window.location.origin}/dashboard`,
+                  callbackUrl:`${window.location.origin}/dashboard`,
                 })
               }
             >
