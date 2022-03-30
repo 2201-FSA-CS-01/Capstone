@@ -12,7 +12,9 @@ function Dashboard() {
       <Meters />
       <Field />
       <Goals />
-      <Navbar />
+      <div className="fixed inset-x-0 bottom-0 mx-4">
+        <Navbar />
+      </div>
     </div>
   );
 }
