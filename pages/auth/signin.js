@@ -1,8 +1,15 @@
 import { getProviders, signIn } from "next-auth/react";
+import shiba from "../../public/images/shiba.gif";
+import Image from "next/image";
+
 export default function SignIn({ providers }) {
   return (
     <main className="flex items-center justify-center w-full min-h-screen mx-auto text-white bg-gray-900">
       <section className="flex w-[30rem] flex-col space-y-10">
+        <div className="border-white border-solid border-4 rounded-md px-2 pt-2 pb-1 m-12">
+          <Image src={shiba} />
+        </div>
+        <br />
         <div className="text-4xl font-medium text-center font-signin">TOMO</div>
         {Object.values(providers).map((provider) => (
           <div className="flex items-center w-full" key={provider.name}>
