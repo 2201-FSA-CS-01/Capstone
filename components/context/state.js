@@ -1,5 +1,5 @@
-import { createContext, useContext } from "react";
-import { useState, useEffect } from "react";
+import { createContext, useContext } from 'react';
+import { useState, useEffect } from 'react';
 
 const AppContext = createContext();
 
@@ -7,10 +7,11 @@ export function AppWrapper({ children }) {
   let [mentalValue, setMentalValue] = useState(0);
   let [physicalValue, setPhysicalValue] = useState(0);
   let [emotionalValue, setEmotionalValue] = useState(0);
+  let [countdown, setCountdown] = useState();
 
   useEffect(() => {
     const mentalXP = async () => {
-      const res = await fetch("/api/experience/mentalxp");
+      const res = await fetch('/api/experience/mentalxp');
       const data = await res.json();
       setMentalValue(data);
     };
@@ -18,7 +19,7 @@ export function AppWrapper({ children }) {
   }, []);
   useEffect(() => {
     const emotionalXP = async () => {
-      const res = await fetch("/api/experience/emotionalxp");
+      const res = await fetch('/api/experience/emotionalxp');
       const data = await res.json();
       setEmotionalValue(data);
     };
@@ -26,7 +27,7 @@ export function AppWrapper({ children }) {
   }, []);
   useEffect(() => {
     const physicalXP = async () => {
-      const res = await fetch("/api/experience/physicalxp");
+      const res = await fetch('/api/experience/physicalxp');
       const data = await res.json();
       setPhysicalValue(data);
     };

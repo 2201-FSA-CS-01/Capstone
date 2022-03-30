@@ -14,7 +14,6 @@ export default async (req, res) => {
   }
 
   const mentalXP = req.body;
-  console.log(mentalXP);
 
   const currentXP = await prisma.user.update({
     where: {

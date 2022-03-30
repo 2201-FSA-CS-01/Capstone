@@ -12,7 +12,7 @@ export default async function handler(req, res) {
       },
     });
     const decrease = user.mentalxp - 5;
-    console.log(decrease);
+
     const updateUser = await prisma.user.update({
       where: {
         email: email,
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         mentalxp: decrease,
       },
     });
-    console.log(updateUser);
+
     res.status(200);
   } catch (err) {
     console.log(err);
