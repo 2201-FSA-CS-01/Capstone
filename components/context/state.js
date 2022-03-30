@@ -1,12 +1,14 @@
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
-
+import { useSession } from "next-auth/react";
+import { Router } from "next/router";
 const AppContext = createContext();
 
 export function AppWrapper({ children }) {
   let [mentalValue, setMentalValue] = useState(0);
   let [physicalValue, setPhysicalValue] = useState(0);
   let [emotionalValue, setEmotionalValue] = useState(0);
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     const mentalXP = async () => {
@@ -14,24 +16,22 @@ export function AppWrapper({ children }) {
       const data = await res.json();
       setMentalValue(data);
     };
-    mentalXP();
-  }, []);
-  useEffect(() => {
     const emotionalXP = async () => {
       const res = await fetch("/api/experience/emotionalxp");
       const data = await res.json();
       setEmotionalValue(data);
     };
-    emotionalXP();
-  }, []);
-  useEffect(() => {
     const physicalXP = async () => {
       const res = await fetch("/api/experience/physicalxp");
       const data = await res.json();
       setPhysicalValue(data);
     };
-    physicalXP();
-  }, []);
+    if (session) {
+      mentalXP();
+      emotionalXP();
+      physicalXP();
+    }
+  }, [status]);
 
   function submitMental() {
     if (mentalValue >= 100) {
