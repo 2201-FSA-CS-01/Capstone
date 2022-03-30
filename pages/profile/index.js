@@ -24,11 +24,9 @@ const Profile = () => {
       </ul>
       <Image src={TomoHome} alt="" height={400} className="rounded-md" />
 
-      <Countdown
-        date={myContext.countdown}
-        onComplete={myContext.refresh}
-        className="box-border p-4 text-3xl text-center border-2 border-white border-solid rounded-md heading text-slate-100 font-Manrope h-50 w-50"
-      />
+      <div className="box-border p-4 mt-8 text-3xl text-center border-2 border-white border-solid rounded-md text-slate-100 font-Manrope h-50 w-50">
+        <Countdown date={myContext.countdown} onComplete={myContext.refresh} />
+      </div>
 
       <div className="fixed bottom-0 flex flex-col w-full">
         <Link href="/loggedOut">
