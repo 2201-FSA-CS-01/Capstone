@@ -5,8 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import TomoHome from '../../public/images/tomoTreeHouse.gif';
 import Countdown from 'react-countdown';
+import { useAppContext } from '../../components/context/state';
 
 const Profile = () => {
+  const myContext = useAppContext();
   return (
     <div>
       <h1 className="box-border p-4 text-3xl text-center border-2 border-white border-solid rounded-md heading text-slate-100 font-Manrope h-50 w-50">
@@ -21,7 +23,12 @@ const Profile = () => {
         <li className="text-slate-100 font-Manrope">Goals Completed:</li>
       </ul>
       <Image src={TomoHome} alt="" height={400} className="rounded-md" />
-      <Countdown date={Date.now() + 86400000} />
+
+      <Countdown
+        date={myContext.countdown}
+        onComplete={myContext.refresh}
+        className="box-border p-4 text-3xl text-center border-2 border-white border-solid rounded-md heading text-slate-100 font-Manrope h-50 w-50"
+      />
 
       <div className="fixed bottom-0 flex flex-col w-full">
         <Link href="/loggedOut">

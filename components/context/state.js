@@ -7,6 +7,8 @@ export function AppWrapper({ children }) {
   let [mentalValue, setMentalValue] = useState(0);
   let [physicalValue, setPhysicalValue] = useState(0);
   let [emotionalValue, setEmotionalValue] = useState(0);
+  let [countdown, setCountdown] = useState(0);
+
   const { data: session, status } = useSession();
 
   useEffect(() => {
@@ -31,6 +33,20 @@ export function AppWrapper({ children }) {
       physicalXP();
     }
   }, [status]);
+
+  useEffect(() => {
+    setCountdown(Date.now() + 86400000);
+  }, []);
+
+  async function refresh() {
+    await fetch('/api/refreshXp', {
+      method: 'PUT',
+    });
+    setMentalValue(20);
+    setPhysicalValue(20);
+    setEmotionalValue(20);
+    setCountdown(Date.now() + 86400000);
+  }
 
   function submitMental() {
     if (mentalValue >= 100) {
@@ -59,7 +75,9 @@ export function AppWrapper({ children }) {
     mentalValue: mentalValue,
     physicalValue: physicalValue,
     emotionalValue: emotionalValue,
+    countdown: countdown,
 
+    refresh: refresh,
     submitMental: submitMental,
     submitPhysical: submitPhysical,
     submitEmotional: submitEmotional,
