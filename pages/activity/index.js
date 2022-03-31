@@ -174,7 +174,7 @@ function Activity(props) {
 
 export default Activity;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   try {
     const goals = await prisma.task.findMany();
 
