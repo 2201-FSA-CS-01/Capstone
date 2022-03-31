@@ -15,6 +15,7 @@ function Activity() {
   let [physicalValue, setPhysicalValue] = useState(0)
   let [emotionalValue, setEmotionalValue] = useState(0)
 
+
   useEffect(() => {
     const mentalXP = async () => {
       const res = await fetch("/api/experience/mentalxp");
