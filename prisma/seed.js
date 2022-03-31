@@ -155,7 +155,7 @@ const taskData = [
   },
   {
     catagory_name: "physical",
-    name: "Skip a bad habbit",
+    name: "Skip a bad habit",
     value: 1,
   },
   {
