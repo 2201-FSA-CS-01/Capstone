@@ -1,10 +1,10 @@
-import MentalMeter from './MentalMeter';
-import PhysicalMeter from './PhysicalMeter';
-import EmotionalMeter from './EmotionalMeter';
+import MentalMeter from "./MentalMeter";
+import PhysicalMeter from "./PhysicalMeter";
+import EmotionalMeter from "./EmotionalMeter";
 
 function Meters() {
   return (
-    <div className="lg:grid lg:row-start-1 lg:row-end-2 lg:col-span-2 lg:mt-16">
+    <div className="lg:grid lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-3 lg:mt-16">
       <MentalMeter />
       <PhysicalMeter />
       <EmotionalMeter />
