@@ -5,7 +5,7 @@ import { Pie } from "react-chartjs-2";
 import Image from "next/image";
 ChartJS.register(ArcElement, Tooltip, Legend);
 import { useAppContext } from "../../components/context/state";
-
+import prisma from "../../utils/prisma";
 // import tomo from "/images/tomo.gif";
 
 function Activity(props) {
