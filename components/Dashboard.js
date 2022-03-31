@@ -8,11 +8,11 @@ import Navbar from './Navbar';
 
 function Dashboard() {
   return (
-    <div className="lg:grid lg:grid-rows-2 lg:grid-cols-4 lg:gap-4 lg:p-20 ">
+    <div className="mt-10 lg:grid lg:grid-rows-2 lg:grid-cols-5 lg:gap-6 lg:p-20">
       <Meters />
       <Field />
       <Goals />
-      <div className="fixed inset-x-0 bottom-0 mx-4">
+      <div className="inset-x-0 bottom-0 mx-4 lg:mt-20 lg:row-start-2 lg:row-end-2 lg:col-start-2 col-end-5">
         <Navbar />
       </div>
     </div>

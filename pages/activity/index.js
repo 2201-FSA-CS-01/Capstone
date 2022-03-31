@@ -27,6 +27,7 @@ function Activity(props) {
     }
   }, []);
 
+
   useEffect(() => {
     const mentalXP = async () => {
       const res = await fetch("/api/experience/mentalxp");
