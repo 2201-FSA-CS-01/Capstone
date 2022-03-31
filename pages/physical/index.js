@@ -16,9 +16,7 @@ const index = (props) => {
   };
   const myContext = useAppContext();
   const { data: session } = useSession();
-
   if (session) {
-    //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
       <div className="py-44">
         <div className="fixed inset-x-0 top-0 w-100 mb-1 bg-gray-800 border-2 border-white border-solid rounded-md">
@@ -63,11 +61,6 @@ const index = (props) => {
   return (
     <>
       <LoggedOut />
-      {/* Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-      <Link href="/emotional" className="">
-        Physical Goals
-      </Link> */}
     </>
   );
 };
