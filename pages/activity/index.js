@@ -5,8 +5,6 @@ import { Pie } from "react-chartjs-2";
 import Image from "next/image";
 ChartJS.register(ArcElement, Tooltip, Legend);
 import { useAppContext } from "../../components/context/state";
-import woods from "../../public/images/darkWoods.jpeg";
-import Link from "next/link";
 
 // import tomo from "/images/tomo.gif";
 
@@ -182,11 +180,6 @@ export const getServerSideProps = async () => {
       props: { goals },
     };
   } catch (error) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/",
-      },
-    };
+    console.error(error);
   }
 };
