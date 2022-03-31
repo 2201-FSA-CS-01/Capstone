@@ -5,7 +5,7 @@ import Image from 'next/image';
 import heart from '../../public/images/heart.gif';
 import brain from '../../public/images/brain.gif';
 import dumbbell from '../../public/images/dumbbell.gif';
-import storm from '../../public/images/storm.gif';
+import thought from '../../public/images/thought.gif';
 import stars from '../../public/images/stars.gif';
 
 export default function renderImage() {
@@ -16,8 +16,8 @@ export default function renderImage() {
     myContext.physicalValue <= 25
   ) {
     return (
-      <div className="absolute mb-40">
-        <Image src={storm} alt="" width={140} height={130} />
+      <div className="absolute mb-40 mb-28 ml-28">
+        <Image src={thought} alt="" width={80} height={80} />
       </div>
     );
   } else if (myContext.emotionalValue <= 25) {
@@ -44,7 +44,7 @@ export default function renderImage() {
     myContext.physicalValue === 100
   ) {
     return (
-      <div className="absolute lg:w-72 lg:h-72">
+      <div className="absolute lg:w-80 lg:h-68">
         <Image src={stars} alt="" width={500} height={380} />
       </div>
     );
