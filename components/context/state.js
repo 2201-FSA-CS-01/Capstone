@@ -1,6 +1,6 @@
-import { createContext, useContext } from 'react';
-import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { createContext, useContext } from "react";
+import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 const AppContext = createContext();
 
 export function AppWrapper({ children }) {
@@ -8,22 +8,22 @@ export function AppWrapper({ children }) {
   let [physicalValue, setPhysicalValue] = useState(0);
   let [emotionalValue, setEmotionalValue] = useState(0);
   let [countdown, setCountdown] = useState(0);
-
+  const [completedGoals, setCompletedGoals] = useState([]);
   const { data: session, status } = useSession();
 
   useEffect(() => {
     const mentalXP = async () => {
-      const res = await fetch('/api/experience/mentalxp');
+      const res = await fetch("/api/experience/mentalxp");
       const data = await res.json();
       setMentalValue(data);
     };
     const emotionalXP = async () => {
-      const res = await fetch('/api/experience/emotionalxp');
+      const res = await fetch("/api/experience/emotionalxp");
       const data = await res.json();
       setEmotionalValue(data);
     };
     const physicalXP = async () => {
-      const res = await fetch('/api/experience/physicalxp');
+      const res = await fetch("/api/experience/physicalxp");
       const data = await res.json();
       setPhysicalValue(data);
     };
@@ -39,8 +39,8 @@ export function AppWrapper({ children }) {
   }, []);
 
   async function refresh() {
-    await fetch('/api/refreshXp', {
-      method: 'PUT',
+    await fetch("/api/refreshXp", {
+      method: "PUT",
     });
     setMentalValue(20);
     setPhysicalValue(20);
@@ -76,7 +76,8 @@ export function AppWrapper({ children }) {
     physicalValue: physicalValue,
     emotionalValue: emotionalValue,
     countdown: countdown,
-
+    completedGoals,
+    setCompletedGoals,
     refresh: refresh,
     submitMental: submitMental,
     submitPhysical: submitPhysical,
