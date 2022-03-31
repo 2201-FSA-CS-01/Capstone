@@ -1,3 +1,4 @@
+const colors = require("tailwindcss/colors");
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -19,6 +20,25 @@ module.exports = {
     },
     animation: {
       wiggle: "wiggle 200ms ease-in-out",
+    },
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      black: colors.black,
+      white: colors.white,
+      gray: colors.gray,
+      blue: colors.blue,
+      green: colors.green,
+      pink: colors.pink,
+      red: colors.red,
+      violet: colors.violet,
+      cyan: colors.cyan,
+      emerald: colors.emerald,
+      indigo: colors.indigo,
+      yellow: colors.yellow,
+      physical: "#F4812F",
+      mental: "#42AAC3",
+      emotional: "#AC54F1",
     },
   },
   screens: {
