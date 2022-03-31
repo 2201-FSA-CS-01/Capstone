@@ -8,7 +8,7 @@ import Navbar from "./Navbar";
 
 function Dashboard() {
   return (
-    <div className="lg:grid lg:grid-rows-2 lg:grid-cols-5 lg:gap-6 lg:p-20">
+    <div className="mt-10 lg:grid lg:grid-rows-2 lg:grid-cols-5 lg:gap-6 lg:p-20">
       <Meters />
       <Field />
       <Goals />
