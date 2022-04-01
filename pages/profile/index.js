@@ -42,7 +42,14 @@ const Profile = () => {
         </div>
 
         <div className="flex flex-col lg:row-start-3 lg:row-end-3 lg:col-start-3 lg:col-end-4">
-          <Image src={TomoHome} alt="" height={400} className="rounded-md" />
+          <Image
+            src="/images/tomoTreeHouse.gif"
+            alt=""
+            height={400}
+            width={400}
+            leyout="fill"
+            className="rounded-md"
+          />
         </div>
 
         <div className="flex flex-col box-border p-4 mb-16 mt-8 text-3xl text-center border-2 border-white border-solid rounded-md text-slate-100 font-Manrope w-full lg:row-start-4 lg:row-end-4 lg:col-start-3 col-end-4">
