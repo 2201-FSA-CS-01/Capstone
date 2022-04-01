@@ -37,6 +37,7 @@ const Profile = () => {
   }, []);
 
   return (
+<<<<<<< Updated upstream
     <div>
       <h1 className="box-border p-4 text-3xl text-center border-2 border-white border-solid rounded-md heading text-slate-100 font-Manrope h-50 w-50">
         User Profile
@@ -49,6 +50,24 @@ const Profile = () => {
         <li className="text-slate-100 font-Manrope"></li>
       </ul>
       <Image src={TomoHome} alt="" height={400} className="rounded-md" />
+=======
+    <div className="lg: mt-2 lg:grid lg:grid-cols-5 lg:gap-6 ">
+      <div className="box-border p-4 text-3xl text-center border-2 border-white border-solid rounded-md heading text-slate-100 font-Manrope lg:row-start-1 lg:row-end-1 lg:col-start-3 col-end-4">
+        <h1>User Profile</h1>
+      </div>
+      <div className="border-white border-solid rounded-md heading text-slate-100 font-Manrope lg:row-start-2 lg:row-end-2 lg:col-start-3 col-end-4">
+        <ul className="flex flex-col text-center text-slate-100">
+          <br />
+          <li>User Email: {userData.email}</li>
+          <li>User Experience:</li>
+          <br />
+        </ul>
+      </div>
+      <div className="lg:row-start-3 lg:row-end-3 lg:col-start-3 col-end-4">
+        <Image src={TomoHome} alt="" height={400} className="rounded-md" />
+      </div>
+      <div className="box-border p-4 mt-8 text-3xl text-center border-2 border-white border-solid rounded-md text-slate-100 font-Manrope w-96 lg:row-start-4 lg:row-end-4 lg:col-start-3 col-end-4">
+>>>>>>> Stashed changes
 
       <div className="box-border p-4 mt-8 text-3xl text-center border-2 border-white border-solid rounded-md text-slate-100 font-Manrope h-50 w-50">
         <Countdown date={myContext.countdown} onComplete={myContext.refresh} />
