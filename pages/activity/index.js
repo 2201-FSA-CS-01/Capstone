@@ -66,7 +66,7 @@ function Activity(props) {
           colorCoded.push(
             <li
               key={goal.id}
-              className=" col-span-1 w-96 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-yellow-400 via-gold-500 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
+              className=" col-span-1 w-full my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-yellow-400 via-gold-500 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
             >
               <div className="w-full flex items-center justify-between p-6 space-x-6">
                 <div className="flex-1 truncate">
@@ -85,7 +85,7 @@ function Activity(props) {
           colorCoded.push(
             <li
               key={goal.id}
-              className="  col-span-1 w-96 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
+              className="  col-span-1 w-full my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
             >
               <div className="w-full flex items-center justify-between p-6 space-x-6">
                 <div className="flex-1 truncate">
@@ -104,7 +104,7 @@ function Activity(props) {
           colorCoded.push(
             <li
               key={goal.id}
-              className=" col-span-1 w-96 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-100 font-Manrope shadow-cyan-500/100"
+              className=" col-span-1 w-full my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-100 font-Manrope shadow-cyan-500/100"
             >
               <div className="w-full flex items-center justify-between p-6 space-x-6">
                 <div className="flex-1 truncate">
@@ -126,7 +126,7 @@ function Activity(props) {
   }
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen flex-col space-y-8">
+      <div className="flex items-center justify-center min-h-screen flex-col space-y-8 py-24">
         {colorCoded.length >= 1 ? (
           <div className="text-center m-auto mt-4 mb-0">
             <Pie
@@ -146,7 +146,7 @@ function Activity(props) {
         ) : (
           ""
         )}
-        <div className="flex items-center flex-col">
+        <div className="flex items-center flex-col w-full">
           <h1 className="font-mPlus text-center text-white font-semibold text-2xl">
             {colorCoded.length >= 1 ? "Completed Goals" : "No Completed Goals"}
           </h1>
@@ -157,13 +157,13 @@ function Activity(props) {
           )}
           <ul
             role="list"
-            className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 "
+            className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 w-7/8 sm:w-3/4 overflow-hidden"
           >
             {colorCoded.length >= 1 ? colorCoded.map((goal) => goal) : ""}
           </ul>
         </div>
       </div>
-      <div className="mb-auto sticky bottom-0 w-full">
+      <div className="mb-auto fixed bottom-0 w-full">
         <Navbar />
       </div>
     </>
