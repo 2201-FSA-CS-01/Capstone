@@ -4,84 +4,182 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import Image from "next/image";
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-import woods from "../../public/images/darkWoods.jpeg";
+import { useAppContext } from "../../components/context/state";
+import prisma from "../../utils/prisma";
 // import tomo from "/images/tomo.gif";
 
+function Activity(props) {
+  let [mentalValue, setMentalValue] = useState(0);
+  let [physicalValue, setPhysicalValue] = useState(0);
+  let [emotionalValue, setEmotionalValue] = useState(0);
+  const [filteredGoals, setfilteredGoals] = useState([]);
+  const myContext = useAppContext();
+  const { completedGoals } = myContext;
 
-function Activity() {
-
-  let [mentalValue, setMentalValue] = useState(0)
-  let [physicalValue, setPhysicalValue] = useState(0)
-  let [emotionalValue, setEmotionalValue] = useState(0)
+  useEffect(() => {
+    if (completedGoals.length >= 1) {
+      const filter = props.goals.filter(({ id }) =>
+        completedGoals.includes(id)
+      );
+      setfilteredGoals(filter);
+    }
+  }, []);
 
   useEffect(() => {
     const mentalXP = async () => {
       const res = await fetch("/api/experience/mentalxp");
       const mentalExp = await res.json();
-      setMentalValue(mentalExp)
+      setMentalValue(mentalExp);
     };
-    mentalXP();
-  }, []);
-
-  useEffect(() => {
-    const physicalXP = async () => {
-      const res = await fetch("/api/experience/physicalxp");
-      const physicalExp = await res.json();
-      setPhysicalValue(physicalExp)
-    };
-    physicalXP();
-  }, []);
-
-  useEffect(() => {
     const emotionalXP = async () => {
       const res = await fetch("/api/experience/emotionalxp");
       const emotionalExp = await res.json();
-      setEmotionalValue(emotionalExp)
+      setEmotionalValue(emotionalExp);
     };
+    const physicalXP = async () => {
+      const res = await fetch("/api/experience/physicalxp");
+      const physicalExp = await res.json();
+      setPhysicalValue(physicalExp);
+    };
+    mentalXP();
+    physicalXP();
     emotionalXP();
   }, []);
 
   const data = {
-    labels: ["Mental", "Physical", "Emotional"],
+    labels: ["MentalXP", "PhysicalXP", "EmotionalXP"],
     datasets: [
       {
-        label: "Goals Completed",
         data: [mentalValue, physicalValue, emotionalValue],
-        backgroundColor: ["#0ea5e9", "#f97316", "#a855f7"],
+        backgroundColor: ["#42AAC3", "#F4812F", "#AC54F1"],
         borderColor: ["#4ade80", "#eab308", "#ec4899"],
-        borderWidth: 5,
+        borderWidth: 1,
+        offset: 10,
       },
     ],
   };
-
-
+  let colorCoded = [];
+  {
+    filteredGoals.map((goal) => {
+      switch (goal.catagory_name) {
+        case "physical":
+          colorCoded.push(
+            <li
+              key={goal.id}
+              className=" col-span-1 w-96 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-yellow-400 via-gold-500 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
+            >
+              <div className="w-full flex items-center justify-between p-6 space-x-6">
+                <div className="flex-1 truncate">
+                  <h3 className="text-gray-900 text-sm font-medium truncate">
+                    {goal.name}
+                  </h3>
+                </div>
+                <div>
+                  <Image src="/images/dumbbell.gif" width={40} height={40} />
+                </div>
+              </div>
+            </li>
+          );
+          break;
+        case "mental":
+          colorCoded.push(
+            <li
+              key={goal.id}
+              className="  col-span-1 w-96 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
+            >
+              <div className="w-full flex items-center justify-between p-6 space-x-6">
+                <div className="flex-1 truncate">
+                  <h3 className="text-gray-900 text-sm font-medium truncate">
+                    {goal.name}
+                  </h3>
+                </div>
+                <div>
+                  <Image src="/images/brain.gif" width={40} height={40} />
+                </div>
+              </div>
+            </li>
+          );
+          break;
+        case "emotional":
+          colorCoded.push(
+            <li
+              key={goal.id}
+              className=" col-span-1 w-96 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-100 font-Manrope shadow-cyan-500/100"
+            >
+              <div className="w-full flex items-center justify-between p-6 space-x-6">
+                <div className="flex-1 truncate">
+                  <h3 className="text-gray-900 text-sm font-medium truncate">
+                    {goal.name}
+                  </h3>
+                </div>
+                <div>
+                  <Image src="/images/heart.gif" width={40} height={40} />
+                </div>
+              </div>
+            </li>
+          );
+          break;
+        default:
+          break;
+      }
+    });
+  }
   return (
-    < div >
-      <h1 className="heading text-3xl text-slate-100 font-Manrope text-center box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
-        Your Activity
-      </h1>
+    <>
+      <div className="flex items-center justify-center min-h-screen flex-col space-y-8">
+        {colorCoded.length >= 1 ? (
+          <div className="text-center m-auto mt-4 mb-0">
+            <Pie
+              data={data}
+              options={{
+                plugins: { legend: { display: false } },
+                responsive: true,
+              }}
+            />
 
-      <div className="flex flex-auto bg-slate-800 box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
-        <Pie data={data} />
-      </div>
-
-      <div className="flex items-center justify-center mt-2 box-border border-2 h-50 w-50 p-4 rounded-md border-solid border-white">
-        <Image src={woods} alt="" height={600} className="rounded-md" />
-        <div className="absolute w-50 h-80 text-xl font-outline font-semibold">
-          <ul>
-            {/* <li className="outline outline-1 text-slate-100 font-Manrope shadow-xl shadow-white ">
-              Goals Completed:
-            </li> */}
+            <ul className="flex flex-row items-center justify-between mt-4 text-white">
+              <li className="bg-mental rounded p-2">Mental</li>
+              <li className="bg-emotional rounded p-2">Emotional</li>
+              <li className="bg-physical rounded p-2">Physical</li>
+            </ul>
+          </div>
+        ) : (
+          ""
+        )}
+        <div className="flex items-center flex-col">
+          <h1 className="font-mPlus text-center text-white font-semibold text-2xl">
+            {colorCoded.length >= 1 ? "Completed Goals" : "No Completed Goals"}
+          </h1>
+          {colorCoded.length >= 1 ? (
+            ""
+          ) : (
+            <Image src="/images/storm.gif" width={100} height={100} />
+          )}
+          <ul
+            role="list"
+            className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 "
+          >
+            {colorCoded.length >= 1 ? colorCoded.map((goal) => goal) : ""}
           </ul>
         </div>
       </div>
-
-      <div className="flex flex-col fixed bottom-0 inset-x-0">
+      <div className="mb-auto sticky bottom-0 w-full">
         <Navbar />
       </div>
-    </div >
-  )
+    </>
+  );
 }
 
-export default Activity
+export default Activity;
+
+export const getServerSideProps = async () => {
+  try {
+    const goals = await prisma.task.findMany();
+
+    return {
+      props: { goals },
+    };
+  } catch (error) {
+    console.error(error);
+  }
+};
