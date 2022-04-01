@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import Navbar from '../../components/Navbar';
-import Link from 'next/link';
-import Image from 'next/image';
-import TomoHome from '../../public/images/tomoTreeHouse.gif';
-import Countdown from 'react-countdown';
-import { useAppContext } from '../../components/context/state';
+import React, { useEffect, useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Navbar from "../../components/Navbar";
+import Link from "next/link";
+import Image from "next/image";
+import TomoHome from "../../public/images/tomoTreeHouse.gif";
+import Countdown from "react-countdown";
+import { useAppContext } from "../../components/context/state";
 
 const Profile = () => {
   const myContext = useAppContext();
 
-  let [userData, setUserData] = useState({})
+  let [userData, setUserData] = useState({});
 
   useEffect(() => {
     const getUserData = async () => {
-      console.log("hello")
-      const res = await fetch("/api/userInfo")
-      console.log("TEST" + res)
+      console.log("hello");
+      const res = await fetch("/api/userInfo");
+      console.log("TEST" + res);
       const userInfo = await res.json();
-      setUserData(userInfo)
+      setUserData(userInfo);
     };
     getUserData();
   }, []);
@@ -40,7 +40,6 @@ const Profile = () => {
         <Image src={TomoHome} alt="" height={400} className="rounded-md" />
       </div>
       <div className="box-border p-4 mt-8 text-3xl text-center border-2 border-white border-solid rounded-md text-slate-100 font-Manrope w-96 lg:row-start-4 lg:row-end-4 lg:col-start-3 col-end-4">
-
         <Countdown date={myContext.countdown} onComplete={myContext.refresh} />
       </div>
       <div className="lg:row-start-5 lg:row-end-5 lg:col-start-3 col-end-4">
@@ -56,6 +55,5 @@ const Profile = () => {
     </div>
   );
 };
-
 
 export default Profile;
