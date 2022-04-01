@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Montserrat:wght@600&family=Playfair+Display+SC&family=Staatliches&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Montserrat:wght@600&family=Playfair+Display+SC&family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,7 +12,7 @@ body {
 }
 #the-final-countdown {
   background: #333;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   text-align: center;
   color: #eee;
   text-shadow: 1px 1px 5px black;

@@ -1,6 +1,6 @@
-import '../styles/globals.css';
-import { SessionProvider } from 'next-auth/react';
-import { AppWrapper } from '../components/context/state.js';
+import "../styles/globals.css";
+import { SessionProvider } from "next-auth/react";
+import { AppWrapper } from "../components/context/state.js";
 
 export default function App({
   Component,
