@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
-import Image from "next/image";
+import React, { useEffect, useState } from 'react';
+import Navbar from '../../components/Navbar';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+import Image from 'next/image';
 ChartJS.register(ArcElement, Tooltip, Legend);
-import { useAppContext } from "../../components/context/state";
-import prisma from "../../utils/prisma";
+import { useAppContext } from '../../components/context/state';
+import prisma from '../../utils/prisma';
 // import tomo from "/images/tomo.gif";
 
 function Activity(props) {
@@ -27,17 +27,17 @@ function Activity(props) {
 
   useEffect(() => {
     const mentalXP = async () => {
-      const res = await fetch("/api/experience/mentalxp");
+      const res = await fetch('/api/experience/mentalxp');
       const mentalExp = await res.json();
       setMentalValue(mentalExp);
     };
     const emotionalXP = async () => {
-      const res = await fetch("/api/experience/emotionalxp");
+      const res = await fetch('/api/experience/emotionalxp');
       const emotionalExp = await res.json();
       setEmotionalValue(emotionalExp);
     };
     const physicalXP = async () => {
-      const res = await fetch("/api/experience/physicalxp");
+      const res = await fetch('/api/experience/physicalxp');
       const physicalExp = await res.json();
       setPhysicalValue(physicalExp);
     };
@@ -47,12 +47,12 @@ function Activity(props) {
   }, []);
 
   const data = {
-    labels: ["MentalXP", "PhysicalXP", "EmotionalXP"],
+    labels: ['MentalXP', 'PhysicalXP', 'EmotionalXP'],
     datasets: [
       {
         data: [mentalValue, physicalValue, emotionalValue],
-        backgroundColor: ["#42AAC3", "#F4812F", "#AC54F1"],
-        borderColor: ["#4ade80", "#eab308", "#ec4899"],
+        backgroundColor: ['#42AAC3', '#F4812F', '#AC54F1'],
+        borderColor: ['#4ade80', '#eab308', '#ec4899'],
         borderWidth: 1,
         offset: 10,
       },
@@ -62,15 +62,15 @@ function Activity(props) {
   {
     filteredGoals.map((goal) => {
       switch (goal.catagory_name) {
-        case "physical":
+        case 'physical':
           colorCoded.push(
             <li
               key={goal.id}
-              className=" col-span-1 w-full my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-yellow-400 via-gold-500 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
+              className="w-full col-span-1 my-4 text-3xl truncate rounded-lg shadow-md  bg-gradient-to-r from-yellow-400 via-gold-500 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
             >
-              <div className="w-full flex items-center justify-between p-6 space-x-6">
+              <div className="flex items-center justify-between w-full p-6 space-x-6">
                 <div className="flex-1 truncate">
-                  <h3 className="text-gray-900 text-sm font-medium truncate">
+                  <h3 className="text-sm font-medium text-gray-900 truncate">
                     {goal.name}
                   </h3>
                 </div>
@@ -81,15 +81,15 @@ function Activity(props) {
             </li>
           );
           break;
-        case "mental":
+        case 'mental':
           colorCoded.push(
             <li
               key={goal.id}
-              className="  col-span-1 w-full my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
+              className="w-full col-span-1 my-4 text-3xl truncate rounded-lg shadow-md  bg-gradient-to-r from-green-400 to-blue-500 text-slate-100 font-Manrope shadow-yellow-500/100"
             >
-              <div className="w-full flex items-center justify-between p-6 space-x-6">
+              <div className="flex items-center justify-between w-full p-6 space-x-6">
                 <div className="flex-1 truncate">
-                  <h3 className="text-gray-900 text-sm font-medium truncate">
+                  <h3 className="text-sm font-medium text-gray-900 truncate">
                     {goal.name}
                   </h3>
                 </div>
@@ -100,15 +100,15 @@ function Activity(props) {
             </li>
           );
           break;
-        case "emotional":
+        case 'emotional':
           colorCoded.push(
             <li
               key={goal.id}
-              className=" col-span-1 w-full my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-100 font-Manrope shadow-cyan-500/100"
+              className="w-full col-span-1 my-4 text-3xl truncate rounded-lg shadow-md  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-100 font-Manrope shadow-cyan-500/100"
             >
-              <div className="w-full flex items-center justify-between p-6 space-x-6">
+              <div className="flex items-center justify-between w-full p-6 space-x-6">
                 <div className="flex-1 truncate">
-                  <h3 className="text-gray-900 text-sm font-medium truncate">
+                  <h3 className="text-sm font-medium text-gray-900 truncate">
                     {goal.name}
                   </h3>
                 </div>
@@ -126,9 +126,9 @@ function Activity(props) {
   }
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen flex-col space-y-8 py-24">
+      <div className="flex flex-col items-center justify-center min-h-screen py-24 space-y-8">
         {colorCoded.length >= 1 ? (
-          <div className="text-center m-auto mt-4 mb-0">
+          <div className="m-auto mt-4 mb-0 text-center">
             <Pie
               data={data}
               options={{
@@ -138,32 +138,32 @@ function Activity(props) {
             />
 
             <ul className="flex flex-row items-center justify-between mt-4 text-white">
-              <li className="bg-mental rounded p-2">Mental</li>
-              <li className="bg-emotional rounded p-2">Emotional</li>
-              <li className="bg-physical rounded p-2">Physical</li>
+              <li className="p-2 rounded bg-mental">Mental</li>
+              <li className="p-2 rounded bg-emotional">Emotional</li>
+              <li className="p-2 rounded bg-physical">Physical</li>
             </ul>
           </div>
         ) : (
-          ""
+          ''
         )}
-        <div className="flex items-center flex-col w-full">
-          <h1 className="font-mPlus text-center text-white font-semibold text-2xl">
-            {colorCoded.length >= 1 ? "Completed Goals" : "No Completed Goals"}
+        <div className="flex flex-col items-center w-full">
+          <h1 className="text-2xl font-semibold text-center text-white font-mPlus">
+            {colorCoded.length >= 1 ? 'Completed Goals' : 'No Completed Goals'}
           </h1>
           {colorCoded.length >= 1 ? (
-            ""
+            ''
           ) : (
             <Image src="/images/storm.gif" width={100} height={100} />
           )}
           <ul
             role="list"
-            className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 w-7/8 sm:w-3/4 overflow-hidden"
+            className="grid grid-cols-1 gap-6 overflow-hidden sm:grid-cols-1 lg:grid-cols-1 w-7/8 sm:w-3/4"
           >
-            {colorCoded.length >= 1 ? colorCoded.map((goal) => goal) : ""}
+            {colorCoded.length >= 1 ? colorCoded.map((goal) => goal) : ''}
           </ul>
         </div>
       </div>
-      <div className="mb-auto fixed bottom-0 w-full">
+      <div className="fixed bottom-0 w-full mb-auto">
         <Navbar />
       </div>
     </>
