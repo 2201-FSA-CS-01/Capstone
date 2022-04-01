@@ -24,6 +24,7 @@ const Profile = () => {
   }, []);
 
   return (
+
     <div className="lg: mt-2 lg:grid lg:grid-cols-5 lg:gap-6 ">
       <div className="box-border p-4 text-3xl text-center border-2 border-white border-solid rounded-md heading text-slate-100 font-Manrope lg:row-start-1 lg:row-end-1 lg:col-start-3 col-end-4">
         <h1>User Profile</h1>
@@ -31,7 +32,9 @@ const Profile = () => {
       <div className="border-white border-solid rounded-md heading text-slate-100 font-Manrope lg:row-start-2 lg:row-end-2 lg:col-start-3 col-end-4">
         <ul className="flex flex-col text-center text-slate-100">
           <br />
-          <li>User Email:</li>
+          <li>User Email: {userData.email}</li>
+
+
           <li>User Experience:</li>
           <br />
         </ul>
