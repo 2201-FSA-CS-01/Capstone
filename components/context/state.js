@@ -8,7 +8,7 @@ export function AppWrapper({ children }) {
   let [physicalValue, setPhysicalValue] = useState(0);
   let [emotionalValue, setEmotionalValue] = useState(0);
   let [countdown, setCountdown] = useState(null);
-
+  const [completedGoals, setCompletedGoals] = useState([]);
   const { data: session, status } = useSession();
 
   useEffect(() => {
@@ -81,7 +81,8 @@ export function AppWrapper({ children }) {
     physicalValue: physicalValue,
     emotionalValue: emotionalValue,
     countdown: countdown,
-
+    completedGoals,
+    setCompletedGoals,
     refresh: refresh,
     submitMental: submitMental,
     submitPhysical: submitPhysical,

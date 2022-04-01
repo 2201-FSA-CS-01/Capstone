@@ -15,12 +15,11 @@ const index = (props) => {
     });
   };
   const myContext = useAppContext();
+  const { setCompletedGoals } = myContext;
   const { data: session } = useSession();
-
   if (session) {
-    //In return, have <SingleGoals/> comp render here as <SingleGoals/>, then on a separate component, map through props(goals) as below?
     return (
-      <div className="py-44">
+      <div className="py-44 text-white">
         <div className="fixed inset-x-0 top-0 w-100 mb-1 bg-gray-800 border-2 border-white border-solid rounded-md">
           <MentalMeter />
           <PhysicalMeter />
@@ -34,18 +33,19 @@ const index = (props) => {
           <div>
             <ul className="flex flex-col items-center ">
               {props.goals
-                ? props.goals.map((goals) => {
+                ? props.goals.map((goal) => {
                     return (
                       <li
-                        key={goals.id}
+                        key={goal.id}
                         onClick={() => {
                           updateXP();
                           myContext.submitPhysical();
+                          setCompletedGoals((prev) => [...prev, goal.id]);
                         }}
                         className="flex flex-col w-96 my-4 text-3xl truncate rounded-lg shadow-md bg-gradient-to-r from-yellow-400 via-gold-500 to-red-500 text-slate-100 font-Manrope shadow-violet-500/100"
                       >
                         <button className="py-2 justify-items-center hover:bg-gradient-to-r from-yellow-500 via-gold-600 to-red-600">
-                          {goals.name}
+                          {goal.name}
                         </button>
                       </li>
                     );
@@ -63,11 +63,6 @@ const index = (props) => {
   return (
     <>
       <LoggedOut />
-      {/* Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-      <Link href="/emotional" className="">
-        Physical Goals
-      </Link> */}
     </>
   );
 };

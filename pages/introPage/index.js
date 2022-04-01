@@ -10,8 +10,8 @@ export default function introPage() {
           <div className="font-mPlus text-2xl">
             This is <span className="font-bold">TOMO</span>
           </div>
-          <div class="flex flex-wrap justify-center">
-            <div class="w-6/12 sm:w-4/12 px-4">
+          <div className="flex flex-wrap justify-center">
+            <div className="w-6/12 sm:w-4/12 px-4">
               <Image
                 src="/images/introTOMO.png"
                 width={479}
