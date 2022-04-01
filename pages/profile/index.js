@@ -33,9 +33,9 @@ const Profile = () => {
         <ul className="flex flex-col text-center text-slate-100">
           <br />
           <li>User Email: {userData.email}</li>
-
-
-          <li>User Experience:</li>
+          <li>Mental Experience:{userData.mentalxp}</li>
+          <li>Physical Experience:{userData.physicalxp}</li>
+          <li>Emotional Experience:{userData.emotionalxp}</li>
           <br />
         </ul>
       </div>
