@@ -4,7 +4,8 @@ import Navbar from '../../components/Navbar';
 import Link from 'next/link';
 import Image from 'next/image';
 import TomoHome from '../../public/images/tomoTreeHouse.gif';
-import Countdown from 'react-countdown';
+// import Countdown from 'react-countdown';
+import Countdown from '../../components/CountdownComp';
 import { useAppContext } from '../../components/context/state';
 
 const Profile = () => {
@@ -25,7 +26,7 @@ const Profile = () => {
       <Image src={TomoHome} alt="" height={400} className="rounded-md" />
 
       <div className="box-border p-4 mt-8 text-3xl text-center border-2 border-white border-solid rounded-md text-slate-100 font-Manrope h-50 w-50">
-        <Countdown date={myContext.countdown} onComplete={myContext.refresh} />
+        <Countdown onComplete={myContext.refresh} />
       </div>
 
       <div className="fixed bottom-0 flex flex-col w-full">

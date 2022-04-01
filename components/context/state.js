@@ -7,7 +7,7 @@ export function AppWrapper({ children }) {
   let [mentalValue, setMentalValue] = useState(0);
   let [physicalValue, setPhysicalValue] = useState(0);
   let [emotionalValue, setEmotionalValue] = useState(0);
-  let [countdown, setCountdown] = useState(0);
+  let [countdown, setCountdown] = useState(null);
 
   const { data: session, status } = useSession();
 
@@ -34,9 +34,13 @@ export function AppWrapper({ children }) {
     }
   }, [status]);
 
-  useEffect(() => {
-    setCountdown(Date.now() + 86400000);
-  }, []);
+  // useEffect(() => {
+  //   localStorage.setItem('countdown', JSON.stringify(countdown));
+  //   const localData = localStorage.getItem('countdown');
+  //   return localData ? JSON.parse(localData) : null;
+  // }, [countdown]);
+  let tomorrow = new Date();
+  tomorrow.setHours(24, 0, 0, 0);
 
   async function refresh() {
     await fetch('/api/refreshXp', {
@@ -45,7 +49,8 @@ export function AppWrapper({ children }) {
     setMentalValue(20);
     setPhysicalValue(20);
     setEmotionalValue(20);
-    setCountdown(Date.now() + 86400000);
+
+    setCountdown(tomorrow);
   }
 
   function submitMental() {
