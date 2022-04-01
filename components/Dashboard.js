@@ -1,10 +1,10 @@
-import Meters from './Meters/Meters';
+import Meters from "./Meters/Meters";
 // import MentalMeter from './Meters/MentalMeter';
 // import PhysicalMeter from './Meters/PhysicalMeter';
 // import EmotionalMeter from './Meters/EmotionalMeter';
-import Field from './Field';
-import Goals from './Goals';
-import Navbar from './Navbar';
+import Field from "./Field";
+import Goals from "./Goals";
+import Navbar from "./Navbar";
 
 function Dashboard() {
   return (
