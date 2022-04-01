@@ -19,7 +19,7 @@ const index = (props) => {
   const { data: session } = useSession();
   if (session) {
     return (
-      <div className="py-44">
+      <div className="py-44 text-white">
         <div className="fixed inset-x-0 top-0 w-100 mb-1 bg-gray-800 border-2 border-white border-solid rounded-md">
           <MentalMeter />
           <PhysicalMeter />

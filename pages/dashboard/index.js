@@ -6,10 +6,8 @@ import Dashboard from "../../components/Dashboard.js";
 
 export default function Home() {
   return (
-    <>
+    <div className="text-white">
       <Dashboard />
-
-     
-    </>
+    </div>
   );
 }
