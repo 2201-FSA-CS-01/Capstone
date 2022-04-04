@@ -4,7 +4,8 @@ import Navbar from '../../components/Navbar';
 import Link from 'next/link';
 import Image from 'next/image';
 import TomoHome from '../../public/images/tomoTreeHouse.gif';
-import Countdown from '../../components/CountdownComp.js';
+// import Countdown from '../../components/CountdownComp.js';
+import Countdown from 'react-countdown';
 import { useAppContext } from '../../components/context/state';
 import { Router } from 'next/router';
 
@@ -40,20 +41,27 @@ const Profile = () => {
               <br />
             </ul>
           </div>
+          <div></div>
 
-          <div className="flex flex-col lg:w-1/2 lg:m-auto">
-            <Image
-              src="/images/tomoTreeHouse.gif"
-              alt=""
-              height={300}
-              width={400}
-              layout="responsive"
-              className="rounded-md"
-            />
+          <div className="flex flex-col h-96 lg:w-1/2 lg:m-auto basis-1">
+            {/* <img src="/images/sleep.webp" className="object-fill h-1/2" /> */}
+            {
+              <Image
+                src="/images/tomoClearPath.jpeg"
+                alt=""
+                height={1920}
+                width={1080}
+                className="object-contain rounded-md"
+              />
+            }
           </div>
 
           <div className="box-border flex flex-col w-full col-end-4 p-4 mt-8 mb-16 text-3xl text-center border-2 border-white border-solid rounded-md text-slate-100 font-Manrope lg:row-start-4 lg:row-end-4 lg:col-start-3">
-            <Countdown />
+            <p className="text-2xl"> A day begins anew!</p>
+            <Countdown
+              date={Date.now() + 5000}
+              onComplete={myContext.refresh}
+            />
             <button
               onClick={() => signOut()}
               className="w-1/2 m-auto my-2 mb-2 text-center text-black bg-gray-200 border-2 border-white rounded-md shadow-md shadow-black"
