@@ -49,6 +49,7 @@ export function AppWrapper({ children }) {
     setMentalValue(20);
     setPhysicalValue(20);
     setEmotionalValue(20);
+    setCompletedGoals([]);
 
     setCountdown(tomorrow);
   }
