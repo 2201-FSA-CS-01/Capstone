@@ -59,7 +59,7 @@ const Profile = () => {
           <div className="box-border flex flex-col w-full col-end-4 p-4 mt-8 mb-16 text-3xl text-center border-2 border-white border-solid rounded-md text-slate-100 font-Manrope lg:row-start-4 lg:row-end-4 lg:col-start-3">
             <p className="text-2xl"> A day begins anew!</p>
             <Countdown
-              date={Date.now() + 5000}
+              date={Date.now() + 86400000}
               onComplete={myContext.refresh}
             />
             <button
