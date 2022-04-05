@@ -7,7 +7,7 @@ TOMO is a wellness application that gamifies positive habit forming
 ## Want to Check TOMO out?
 
 TOMO is a PWA (Progressive Web Application), and can be reached by visiting : https://capstone-woad-six.vercel.app/ , where you'll be prompted to sign in!
-Team TOMO took a mobile first approach when building TOMO; we highly recommend using TOMO on your mobile device, though your device of choice can be used as well.
+Team TOMO took a mobile first approach when building TOMO; we highly recommend using TOMO on your mobile device, though you are more than welcome to use your device of choice!
 
 
 ## The Goal
